@@ -1,0 +1,1 @@
+topojson -o sprachen.json -e sprachen.csv -p rate=+rate,name — topojson.json
