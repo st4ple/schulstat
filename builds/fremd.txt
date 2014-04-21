@@ -1,0 +1,1 @@
+topojson -o fremd.json -e fremd.csv -p rate=+rate,name -- topojson.json

@@ -1,1 +1,1 @@
-topojson -o schuler.json -e schuler.tsv -p rate=+rate,name — topojson.json
+topojson -o schuler.json -e schuler.tsv -p rate=+rate,name -- topojson.json
