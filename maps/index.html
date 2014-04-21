@@ -1,18 +1,121 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-<link rel="stylesheet" type="text/css" href="http://bl.ocks.org/style.css?20120730">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 </head>
 <style>
     iframe {
-        height: 600px;
+        width: 960px;
+        height: 630px;
+        border: 0px;
+    }
+    body {
+        padding-top: 0px;
     }
 </style>
-
-<iframe src="schuler.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-<iframe src="fremd.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-<iframe src="aus.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-<iframe src="vor.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-<iframe src="pri.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-<iframe src="sek.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-<iframe src="stufen.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1 id="home">schulstat <small>Volksschuldaten Kanton Bern</small></h1>
+        </div>
+        <p class="lead">Willkommen zur Open Data App von Oliver Stapleton und Arun Sittampalam.</p>
+        <p>Diese Website wurde im Frühling 2014 im Rahmen der Vorlesung <a href="http://www.iwi.unibe.ch/content/studium/veranstaltungen/resource/open_data_datenmanagement_und_visualisierung/index_ger.html">Open Data: Datenmanagement und Visualisierung</a> der Universität Bern erstellt. Ziel war es, eine Applikation zur Visualierung von öffentlich frei zugänglichen Daten ("Open Data") mithilfe der <a href="http://d3js.org">JavaScript Library D3.js</a> zu entwickeln.</p>
+        <p>Unsere Visualisierungen basieren auf den Volksschuldaten des Kanton Bern aus dem Jahre 2012, welche auf der <a href="http://www.erz.be.ch/erz/de/index/direktion/organisation/generalsekretariat/statistik/schul-_und_gemeindetabellen.html">Website des Kantons</a> zum Herunterladen verfügbar sind.</p>
+        <h4>Shortcuts</h4>
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a href="#karten"><img src="map.png" alt="..."></a>
+                    <div class="caption">
+                        <a href="#karten">zu den Kartenvisualisierungen</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a href="#balken"><img src="map.png" alt="..."></a>
+                    <div class="caption">
+                        <a href="#">zu den Balkendiagrammen</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a href="#kreis"><img src="map.png" alt="..."></a>
+                    <div class="caption">
+                        <a href="#">zu den Kreisdiagrammen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <h4>Inhalt</h4>
+        <ul>
+            <li><a href=#visual>Visualierungen</a>
+                <ul>
+                    <li><a href=#karten>Kartendiagramme</a></li>
+                    <li><a href=#balken>Balkendiagramme</a></li>
+                    <li><a href=#kreis>Kreisdiagramme</a></li>
+                </ul>
+            </li>
+            <li><a href=#doc>Dokumentation</a>
+                <ul>
+                    <li><a href=#vorgehen>Vorgehen</a></li>
+                    <li><a href=#tools>Tools</a></li>
+                    <li><a href=#daten>Daten</a></li>
+                </ul>
+            </li>
+        </ul>
+        <hr/>
+        <h1 id=visual>Visualisierungen</h1>
+        <p>todo</p>
+        <hr/>
+        <h3 id=karten>Karten</h3>
+        <p>todo</p>
+        <hr/>
+        <iframe src="schuler.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a href=schuler.html>Direktlink zu dieser Visualiserung</a></p>
+        <hr/>
+        <iframe src="fremd.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a href=fremd.html>Direktlink zu dieser Visualiserung</a></p>
+        <hr/>
+        <iframe src="aus.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a href=aus.html>Direktlink zu dieser Visualiserung</a></p>
+        <hr/>
+        <iframe src="vor.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a href=vor.html>Direktlink zu dieser Visualiserung</a></p>
+        <hr/>
+        <iframe src="pri.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a href=pri.html>Direktlink zu dieser Visualiserung</a></p>
+        <hr/>
+        <iframe src="sek.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a href=sek.html>Direktlink zu dieser Visualiserung</a></p>
+        <hr/>
+        <iframe src="stufen.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a href=stufen.html>Direktlink zu dieser Visualiserung</a></p>
+        <hr/>
+        <iframe src="sprachen.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a href=sprachen.html>Direktlink zu dieser Visualiserung</a></p>
+        <hr/>
+        <h3 id=balken>Balkendiagramme</h3>
+        <hr/>
+        <h3 id=kreis>Kreisdiagramme</h3>
+        <hr/>
+        <h1 id=doc>Dokumentation</h1>
+        <p>todo</p>
+        <hr/>
+        <h3 id=vorgehen>Vorgehen</h3>
+        <p>todo</p>
+        <h3 id=tools>Tools</h3>
+        <p>todo</p>
+        <h3 id=daten>Daten</h3>
+        <p>todo</p>
+    </div>
+</body>

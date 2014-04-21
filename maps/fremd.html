@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<head><!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
 <style>
     .legend {
   font-size: 12px;
@@ -40,6 +43,7 @@ div.tooltip {
 }
 </style>
 <body>
+<h4>Anteil fremdsprachiger Kinder <small>pro Gemeinde</small></h4>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script>
@@ -131,13 +135,9 @@ d3.json("fremd.json", function(error, be) {
   .attr("x", 50)
   .attr("y", function(d, i){ return 240 - (i*ls_h) - ls_h - 4;})
   .text(function(d, i){ return legend_labels[i]; });
-    
-  legend.append("text")
-  .attr("y", 10)
-  .text("Anteil fremdsprachiger Kinder pro Gemeinde");
-    
 
 });    
 
 
 </script>
+</body>

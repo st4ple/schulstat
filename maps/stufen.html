@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<head><!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
 <style>
     .legend {
   font-size: 12px;
@@ -22,24 +25,17 @@ div.tooltip {
   pointer-events: none;         
 }    
 
-
-.key path {
-  display: none;
-}
-
-.key line {
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
 .grenze {
   fill: none;
-  stroke: #cfcfcf;
+  stroke: #ffffff;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
+    
 </style>
 <body>
+        <h4>Anzahl Schulstufen <small>pro Gemeinde</small></h4>
+
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script>
@@ -130,11 +126,7 @@ d3.json("stufen.json", function(error, be) {
   .attr("x", 50)
   .attr("y", function(d, i){ return 120 - (i*ls_h) - ls_h - 4;})
   .text(function(d, i){ return legend_labels[i]; });
-    
-  legend.append("text")
-  .attr("y", 10)
-  .text("Anzahl Schulstufen pro Gemeinde:");
-    
+
 
 });    
 
