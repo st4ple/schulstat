@@ -53,8 +53,9 @@ var ext_color_domain = [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
 var legend_labels = ["0%", "5%", "10%", "15%", "20%", "25%", "30%", "35%", ">40%"]              
 var color = d3.scale.threshold()
 .domain(color_domain)
-.range(["#FDFF6A", "#C9F95B", "#8FF44D", "#51EF3E", "#31EA54", "#24E581", "#17E0B4", "#0BCBDB", "#0087D6"]);
+//.range(["#FDFF6A", "#C9F95B", "#8FF44D", "#51EF3E", "#31EA54", "#24E581", "#17E0B4", "#0BCBDB", "#0087D6"]);
 //.range(["#000", "fbff93", "#f6ea7d", "#eece67", "#e6b053", "#de8f40", "#d56c2e", "#cd481d", "#c5220e", "#bd0004"]);
+.range(["#1828FA", "#1669FB", "#14ABFB", "#12EEFC", "#11FDC6", "#0FFD82", "#0DFE3C","#22FE0B", "#68FF09"]);
 
 var div = d3.select("body").append("div")   
 .attr("class", "tooltip")               
@@ -90,14 +91,14 @@ d3.json("aus.json", function(error, be) {
     d3.select(this).transition().duration(300).style("opacity", 1);
     div.transition().duration(300)
     .style("opacity", 1)
-    div.text(d.properties.name + ": " + d.properties.rate)
+    div.text(d.properties.name + ": " + Math.round(10000*d.properties.rate)/100 + "%")
     .style("left", (d3.event.pageX) + "px")
     .style("top", (d3.event.pageY -30) + "px")    
   })
   .on("mouseout", function() {
     d3.select(this)
     .transition().duration(300)
-    .style("opacity", 0.8);
+    .style("opacity", 1);
     div.transition().duration(300)
     .style("opacity", 0);
   })
@@ -133,7 +134,7 @@ d3.json("aus.json", function(error, be) {
     
   legend.append("text")
   .attr("y", 10)
-  .text("Anteil ausländischer Kinder pro Gemeinde");
+  .text("Anteil ausländischer Kinder pro Gemeinde:");
     
 
 });    

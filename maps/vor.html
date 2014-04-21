@@ -48,14 +48,13 @@ var width = 960,
     height =600;
     
 // Setting color domains(intervals of values) for our map
-var color_domain = [1, 20, 50, 100, 200, 400, 800, 1500, 5000]
-var ext_color_domain = [0, 1, 20, 50, 100, 200, 400, 800, 1500, 5000]
-var legend_labels = ["0", "1+", "20+", "50+", "100+", "200+", "400+", "800+", "1500+", "> 5000"]              
+var color_domain = [0, 1]
+var ext_color_domain = [0, 1]
+var legend_labels = ["nein", "ja"]              
 var color = d3.scale.threshold()
 .domain(color_domain)
-//.range(["#000", "#FDFF6A", "#C9F95B", "#8FF44D", "#51EF3E", "#31EA54", "#24E581", "#17E0B4", "#0BCBDB", "#0087D6"]);
+.range(["#FDFF6A", "#454545", "#245BFF"]);
 //.range(["#000", "fbff93", "#f6ea7d", "#eece67", "#e6b053", "#de8f40", "#d56c2e", "#cd481d", "#c5220e", "#bd0004"]);
-.range(["#000", "2449ff", "#5420ff", "#ac1dff", "#ff1af6", "#ff1799", "#ff1339", "#ff4a10", "#ffa80d", "#f4ff09"]);
 
 var div = d3.select("body").append("div")   
 .attr("class", "tooltip")               
@@ -73,7 +72,7 @@ var path = d3.geo.path()
     .projection(null);
 
 //Reading topojson file
-d3.json("schuler.json", function(error, be) {
+d3.json("vor.json", function(error, be) {
   if (error) return console.error(error);
 
   //Painting surfaces
@@ -91,7 +90,7 @@ d3.json("schuler.json", function(error, be) {
     d3.select(this).transition().duration(300).style("opacity", 1);
     div.transition().duration(300)
     .style("opacity", 1)
-    div.text(d.properties.name + ": " + d.properties.rate)
+    div.text(d.properties.name + ": " + (d.properties.rate==1?"ja" : "nein"))
     .style("left", (d3.event.pageX) + "px")
     .style("top", (d3.event.pageY -30) + "px")    
   })
@@ -121,7 +120,7 @@ d3.json("schuler.json", function(error, be) {
 
   legend.append("rect")
   .attr("x", 20)
-  .attr("y", function(d, i){ return 240 - (i*ls_h) - 2*ls_h;})
+  .attr("y", function(d, i){ return 100 - (i*ls_h) - 2*ls_h;})
   .attr("width", ls_w)
   .attr("height", ls_h)
   .style("fill", function(d, i) { return color(d); })
@@ -129,12 +128,12 @@ d3.json("schuler.json", function(error, be) {
 
   legend.append("text")
   .attr("x", 50)
-  .attr("y", function(d, i){ return 240 - (i*ls_h) - ls_h - 4;})
+  .attr("y", function(d, i){ return 100 - (i*ls_h) - ls_h - 4;})
   .text(function(d, i){ return legend_labels[i]; });
     
   legend.append("text")
   .attr("y", 10)
-  .text("Anzahl Schüler pro Gemeinde");
+  .text("Gemeinde hat Vorschulstufe:");
     
 
 });    
