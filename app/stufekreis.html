@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<head><!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
 <style>
 
 body {
@@ -35,16 +38,17 @@ form {
 }
 
 </style>
+<body>
+        <h4>Verteilung Schüler <small>auf Kreise und Bildungstufen</small></h4>
 <form>
-  <label><input type="radio" name="mode" value="multiples" checked> Multiples</label>
-  <label><input type="radio" name="mode" value="stacked"> Stacked</label>
+  <label><input type="radio" name="mode" value="multiples" checked> Bildungsstufen separat</label>
+  <label><input type="radio" name="mode" value="stacked"> zusammengefasst</label>
 </form>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var parseDate = d3.time.format("%Y-%m").parse,
-    formatYear = d3.format("02d"),
-    formatDate = function(d) { return d.date + "Q"; };
+var 
+    formatDate = function(d) { return "Kreis x"; };
 
 var margin = {top: 10, right: 20, bottom: 20, left: 60},
     width = 960 - margin.left - margin.right,
@@ -148,3 +152,4 @@ d3.csv("stufekreis.csv", function(error, data) {
 });
 
 </script>
+</body>
