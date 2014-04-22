@@ -52,14 +52,14 @@ var width = 960,
     height =600;
     
 // Setting color domains(intervals of values) for our map
-var color_domain = [1, 20, 50, 100, 200, 400, 800, 1500, 5000]
-var ext_color_domain = [0, 1, 20, 50, 100, 200, 400, 800, 1500, 5000]
-var legend_labels = ["0", "1+", "20+", "50+", "100+", "200+", "400+", "800+", "1500+", "> 5000"]              
+var color_domain = [1,  50, 100, 200, 400, 800, 1500, 5000]
+var ext_color_domain = [0, 1, 50, 100, 200, 400, 800, 1500, 5000]
+var legend_labels = ["0", "1+", "50+", "100+", "200+", "400+", "800+", "1500+", "> 5000"]              
 var color = d3.scale.threshold()
 .domain(color_domain)
 //.range(["#000", "#FDFF6A", "#C9F95B", "#8FF44D", "#51EF3E", "#31EA54", "#24E581", "#17E0B4", "#0BCBDB", "#0087D6"]);
 //.range(["#000", "fbff93", "#f6ea7d", "#eece67", "#e6b053", "#de8f40", "#d56c2e", "#cd481d", "#c5220e", "#bd0004"]);
-.range(["#000", "#1828FA", "#1669FB", "#14ABFB", "#12EEFC", "#11FDC6", "#0FFD82", "#0DFE3C","#22FE0B", "#68FF09"]);
+.range(["#000", "#1828FA", "#1669FB", "#14ABFB", "#12EEFC", "#11FDC6", "#0FFD82", "#22FE0B", "#68FF09"]);
 
 //.range(["#000", "2449ff", "#5420ff", "#ac1dff", "#ff1af6", "#ff1799", "#ff1339", "#ff4a10", "#ffa80d", "#f4ff09"]);
 
