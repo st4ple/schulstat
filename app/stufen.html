@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<head><!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <style>
     .legend {
@@ -68,7 +69,7 @@ var path = d3.geo.path()
     .projection(null);
 
 //Reading topojson file
-d3.json("stufen.json", function(error, be) {
+d3.json("data/stufen.json", function(error, be) {
   if (error) return console.error(error);
 
   //Painting surfaces

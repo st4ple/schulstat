@@ -3,11 +3,7 @@
 <head>
     
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
 </head>
 <style>
@@ -33,25 +29,25 @@
         <div class="row">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="#karten"><img src="map.png" alt="..."></a>
+                    <a href="#karten"><img src="images/map.png" alt="..."></a>
                     <div class="caption">
-                        <a href="#karten">zu den Kartenvisualisierungen <span class="glyphicon glyphicon-forward"></span></a>
+                        <a href="#karten">zu den Kartenvisualisierungen</a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="#balken"><img src="bar.png" alt="..."></a>
+                    <a href="#balken"><img src="images/bar.png" alt="..."></a>
                     <div class="caption">
-                        <a href="#">zu den Balkendiagrammen <span class="glyphicon glyphicon-forward"></span></a>
+                        <a href="#">zu den Balkendiagrammen</a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="#kreis"><img src="kreis.png" alt="..."></a>
+                    <a href="#kreis"><img src="images/kreis.png" alt="..."></a>
                     <div class="caption">
-                        <a href="#">zu den Kreisdiagrammen <span class="glyphicon glyphicon-forward"></span></a>
+                        <a href="#">zu den Kreisdiagrammen</a>
                     </div>
                 </div>
             </div>
@@ -78,8 +74,8 @@
         <p>todo</p>
         <hr/>
         <h3 id=karten>Karten</h3>
-        <p>Diese Karten zeigen jeweils den Kanton Bern unterteilt nach den Gebieten der einzelnen Gemeinden. Unter der Überschrift befindet sich jeweils eine Farbskala als Legende. Die Farbe Schwarz bedeutet in der Regel, dass diese Gemeinde keine Schulen besitzt (ausser bei den Karten der einzelnen Schulstufen).
-        <br/>Hinweis: Um den Namen einer Gemeinde sowie den auf der Karte dargestellten nummerisch Wert zu erfahren, einfach die Maus über das entsprechende Gebiet bewegen.</p>
+        <p>Diese Karten zeigen jeweils den Kanton Bern unterteilt nach den Gebieten der einzelnen Gemeinden. Unter der Überschrift befindet sich jeweils eine Farbskala als Legende. Die Farbe Schwarz bedeutet in der Regel, dass diese Gemeinde keine Schulen besitzt (ausser bei den Karten mit den einzelnen Schulstufen).
+        </p><p><strong>Hinweis:</strong> Um den Namen einer Gemeinde sowie den auf der Karte dargestellten nummerischen Wert zu erfahren, einfach die Maus über das entsprechende Gebiet bewegen.</p>
         <hr/>
         <iframe src="schuler.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p><a href=schuler.html>Direktlink zu dieser Visualiserung</a></p>
@@ -106,11 +102,13 @@
         <p><a href=sprachen.html>Direktlink zu dieser Visualiserung</a></p>
         <hr/>
         <h3 id=balken>Balkendiagramme</h3>
+        <p>todo</p>
         <hr/>
         <iframe src="stufekreis.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p><a href=stufekreis.html>Direktlink zu dieser Visualiserung</a></p>
         <hr/>
         <h3 id=kreis>Kreisdiagramme</h3>
+        <p>todo</p>
         <hr/>
         <iframe src="auskreis.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p><a href=aukreis.html>Direktlink zu dieser Visualiserung</a></p>
@@ -120,52 +118,42 @@
         <hr/>
         <h3 id=vorgehen>Vorgehen</h3>
         <p>Unser Vorgehen in diesem Projekt lässt sich in sieben Schritte unterteilen:</p>
-        <ol><li><h5>Säubern der erhaltenen Daten in Rohdaten</h5></li>
-        <p>Der zur Verfügung gestellte Datensatz der Volksschuldaten enthält teilweise bereits Aggregationen (z.B. Total Schüler pro Schule, Gemeinde, Kanton, usw), was für uns nicht sehr praktisch ist, da sich diese in derselben Tabelle wie die Rohdaten befinden. Wir haben daher als erstes einmal eine "saubere" Tabelle mit ausschliesslich Rohdaten erstellt.</p>
-            <p>Referenzen: <a href="http://www.erz.be.ch/erz/de/index/direktion/organisation/generalsekretariat/statistik/schul-_und_gemeindetabellen.html">Datenquelle</a><br/>
-                Tools: Excel</p>
-        <li><h5>Analysieren der Daten</h5></li>
-        <p>Als nächstes haben wir geschaut, was für Informationen die Daten überhaupt enthalten und was für Aggregationen sich damit erstellen lassen könnten.</p>
-        <li><h5>Einarbeiten in D3.js</h5></li>
-        <p>Mit dem Wissen über die Informationen unserer Daten im Hinterkopf haben wir diese erst einmal zur Seite gelegt und uns in die D3.js Library eingearbeitet. Wir haben auch nach Beispielen von Visualisierungen gesucht, welche die Informationen der Volksschuldaten gut darstellen könnten.</p>
-                        <p>Referenzen: <a href="http://d3js.org/">D3.js Library</a>, <a href="http://bl.ocks.org/mbostock">Mike Bostock's Blocks</a>, <a href="http://christopheviau.com/d3list/gallery.html">Christophe Viau's D3.js Gallery</a><br/>
-                Tools: <a href="http://brackets.io/">Brackets</a></p>
-        <li><h5>Auswahl der Visualisierungsarten</h5></li>
+        <ol>
+            <li><h5>Säubern der erhaltenen Daten in Rohdaten</h5></li>
+            <p>Der zur Verfügung gestellte Datensatz der Volksschuldaten enthält teilweise bereits Aggregationen (z.B. Total Schüler pro Schule, Gemeinde, Kanton, usw), was für uns nicht sehr praktisch ist, da sich diese in derselben Tabelle wie die Rohdaten befinden. Wir haben daher als erstes einmal eine "saubere" Tabelle mit ausschliesslich Rohdaten erstellt.</p>
+            <p><strong>Referenzen:</strong> <a href="http://www.erz.be.ch/erz/de/index/direktion/organisation/generalsekretariat/statistik/schul-_und_gemeindetabellen.html">Datenquelle</a><br/>
+            <strong>Tools:</strong> Excel</p>
+            <li><h5>Analysieren der Daten</h5></li>
+            <p>Als nächstes haben wir geschaut, was für Informationen die Daten überhaupt enthalten und was für Aggregationen sich damit erstellen lassen könnten.</p>
+            <li><h5>Einarbeiten in D3.js</h5></li>
+            <p>Mit dem Wissen über die Informationen unserer Daten im Hinterkopf haben wir diese erst einmal zur Seite gelegt und uns in die D3.js Library eingearbeitet. Wir haben auch nach Beispielen von Visualisierungen gesucht, welche die Informationen der Volksschuldaten gut darstellen könnten.</p>
+            <p><strong>Referenzen:</strong> <a href="http://d3js.org/">D3.js Library</a>, <a href="http://bl.ocks.org/mbostock">Mike Bostock's Blocks</a>, <a href="http://christopheviau.com/d3list/gallery.html">Christophe Viau's D3.js Gallery</a><br/><strong>Tools:</strong> <a href="http://brackets.io/">Brackets</a></p>
+            <li><h5>Auswahl der Visualisierungsarten</h5></li>
             <p>Basierend auf unseren Erkenntnissen haben wir uns zur Implementierug von Kartenvisualisierungen, Balkendiagrammen und Kreisdiagrammen entschieden. Wir haben uns an den in den Referenzen aufgelisteten Visualisierungen orientiert.</p>
-            <p>Referenzen: <a href="http://bl.ocks.org/mbostock/4060606">Choropleth</a>, <a href="http://bl.ocks.org/KoGor/5685876">Russia choropleth</a>, <a href="http://bl.ocks.org/mbostock/4679202">Stacked-to-Multiples</a>, <a href="http://bl.ocks.org/mbostock/5872848">Dispatching Events</a></p>
-        <li><h5>Aggregation und Verarbeitung der Daten in benötigte Form</h5></li>
+            <p><strong>Referenzen:</strong> <a href="http://bl.ocks.org/mbostock/4060606">Choropleth</a>, <a href="http://bl.ocks.org/KoGor/5685876">Russia choropleth</a>, <a href="http://bl.ocks.org/mbostock/4679202">Stacked-to-Multiples</a>, <a href="http://bl.ocks.org/mbostock/5872848">Dispatching Events</a></p>
+            <li><h5>Aggregation und Verarbeitung der Daten in benötigte Form</h5></li>
             <p>Die Visualisierungen benötigen die Daten in einer ganz bestimmten Form (z.B. in einer CSV Datei mit den Attributen id und rate, oder in einer JSON Datei mit spezifischen Properties). Ausserdem benötigen Kartenvisualisierungen die geographischen Daten des Gebiets, welches visualisiert werden soll. Für den Kanton Bern lassen sich diese glücklichweise sehr leicht mit dem Tool SwissMaps und dem Befehl <code>make topo/be-municipalities.json</code> als TopoJSON Datei generieren. Die Volksschuldaten haben wir mit Excel aggregiert und, falls nötig, mit dem Tool TopoJSON und einem Befehl der Form <code>topojson -o out.json -e daten.csv -p rate=+rate,name -- in.json</code> mit den geographischen Daten des Kanton Bern verknüpft. </p>
-            <p>Tools: Excel, <a href="https://github.com/interactivethings/swiss-maps">SwissMaps</a>, <a href="https://github.com/mbostock/topojson">TopoJSON</a></p>
-        <li><h5>Erstellen der Visualisierungen</h5></li>
+            <p><strong>Tools:</strong> Excel, <a href="https://github.com/interactivethings/swiss-maps">SwissMaps</a>, <a href="https://github.com/mbostock/topojson">TopoJSON</a></p>
+            <li><h5>Erstellen der Visualisierungen</h5></li>
             <p>Das Erstellen der Visualisierungen hat am meisten Zeit in Anspruch genommen. Schon beim kleinsten Fehler im Code wird bei der Visualisierung einfach gar nichts angezeigt und diesen Fehler zu finden, ist meistens sehr mühsam.</p>
-            <p>Tools: <a href="http://brackets.io/">Brackets</a>, <a href="http://www.perbang.dk/rgbgradient/">RGB Gradient</a></p>
-        <li><h5>Zusammensetzen dieser Webseite</h5></li>
-        <p>Da die ganzen Visualisierungen als "App" daherkommen sollen, haben wir sie alle noch auf eine einzige Seite zusammengefügt und dazu noch diese kurze Dokumentation verfasst. Die Typographie dieser Seite stammt vom Twitter Bootstrap Framework.</p>
-        <p>Tools: <a href="http://getbootstrap.com/">Twitter Bootstrap</a></p></ol>
-<hr/>
+            <p><strong>Tools:</strong> <a href="http://brackets.io/">Brackets</a>, <a href="http://www.perbang.dk/rgbgradient/">RGB Gradient</a></p>
+            <li><h5>Zusammensetzen dieser Webseite</h5></li>
+            <p>Da die ganzen Visualisierungen als "App" daherkommen sollen, haben wir sie alle noch auf eine einzige Seite zusammengefügt und dazu noch diese kurze Dokumentation verfasst. Die Typographie dieser Seite stammt vom Twitter Bootstrap Framework.</p>
+            <p><strong>Tools:</strong> <a href="http://getbootstrap.com/">Twitter Bootstrap</a></p>
+        </ol>
+        <hr/>
         <h3 id=daten>Daten</h3>
         <p>Unsere Visualisierungen basieren auf den folgenden Daten und Dateien:</p>
-       <table class="table table-bordered"><tr>
-           <th>Beschreibung</th><th>Link</th></tr>
-           <tbody>
-           <tr><td>Vom Kanton Bern veröffentlichte Form der Volksschuldaten 2012</td><td><a href="schulstat_original.csv">link</a></td></tr>
-        <tr><td>Gesäuberte Form  der Volksschuldaten 2012</td><td><a href="schulstat_clean.csv">link</a></td></tr>
-        <tr><td>Aggregierte Form der Volksschuldaten 2012</td><td><a href="schulstat_agg.xlsx">link</a></td></tr>
-        <tr><td>TopoJSON: Kanton Bern mit Gemeinden (ohne Seen)</td><td><a href="be-municipialities.json">link</a></td></tr>
-        <tr><td>Aggregation: Anzahl Schüler (=rate) pro Gemeinde (=id)</td><td><a href="schuler.tsv">link</a></td></tr>
-        <tr><td>TopoJSON: Verknüpfung Gemeinden + Anzahl Schüler</td><td><a href="schuler.json">link</a></td></tr>
-        <tr><td>Aggregation: Anteil fremdsprachige Kinder (=rate) pro Gemeinde (=id)</td><td><a href="fremd.csv">link</a></td></tr>
-        <tr><td>TopoJSON: Verknüpfung Gemeinden + Anteil fremdsprachige Kinder</td><td><a href="fremd.json">link</a></td></tr>
-        <tr><td>Aggregation: Anteil ausländische Kinder (=rate) pro Gemeinde (=id)</td><td><a href="aus.csv">link</a></td></tr>
-        <tr><td>TopoJSON: Verknüpfung Gemeinden + Anteil ausländische Kinder</td><td><a href="aus.json">link</a></td></tr>
-        <tr><td>Aggregation: Unterrichtete Sprachen (FR: rate=1, FR/DE: rate=2, DE: rate=3; DE/EN: rate=4) pro Gemeinde (=id)</td><td><a href="sprachen.csv">link</a></td></tr>
-        <tr><td>TopoJSON: Verknüpfung Gemeinden + Unterrichtete Sprachen</td><td><a href="sprachen.json">link</a></td></tr>
-        <tr><td>Aggregation: Gemeinde (=id) hat Vorschulstufe (ja: rate=1, nein: rate=0)</td><td><a href="vor.csv">link</a></td></tr>
-        <tr><td>TopoJSON: Verknüpfung Gemeinden + Vorschulstufe vorhanden</td><td><a href="vor.json">link</a></td></tr>
-        <tr><td>Aggregation: Gemeinde (=id) hat Primarstufe (ja: rate=1, nein: rate=0)</td><td><a href="prim.csv">link</a></td></tr>
-        <tr><td>TopoJSON: Verknüpfung Gemeinden + Primarstufe vorhanden</td><td><a href="prim.json">link</a></td></tr>
-        <tr><td>Aggregation: Gemeinde (=id) hat Sekundarstufe I (ja: rate=1, nein: rate=0)</td><td><a href="sek.csv">link</a></td></tr>
-        <tr><td>TopoJSON: Verknüpfung Gemeinden + Sekundarstufe I vorhanden</td><td><a href="sek.json">link</a></td></tr>
-</tbody></table>
+        <table class="table table-bordered">
+            <tr>
+                <th>Beschreibung</th><th>Dateityp<th>Link</th>
+            </tr>
+            <tbody>
+                <tr><td>Vom Kanton Bern veröffentlichte Form der Volksschuldaten 2012</td><td>.csv<td><a href="data/schulstat_original.csv">link</a></td></tr>
+                <tr><td>Gesäuberte Form  der Volksschuldaten 2012</td><td>.csv</td><td><a href="data/schulstat_clean.csv">link</a></td></tr>
+                <tr><td>Aggregierte Form der Volksschuldaten 2012</td><td>.xlsx</td><td><a href="data/schulstat_agg.xlsx">link</a></td></tr>
+                <tr><td>Kanton Bern mit Gemeinden (ohne Seen) als TopoJSON</td><td>.json</td><td><a href="data/be-municipialities.json">link</a></td></tr>
+            </tbody>
+        </table>
     </div>
 </body>
