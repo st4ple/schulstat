@@ -60,7 +60,7 @@ dispatch.on("load.menu", function(stateById) {
 
 // A bar chart to show total population; uses the "bar" namespace.
 dispatch.on("load.bar", function(stateById) {
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
+  var margin = {top: 20, right: 20, bottom: 30, left: 30},
       width = 80 - margin.left - margin.right,
       height = 460 - margin.top - margin.bottom;
 
@@ -97,11 +97,10 @@ dispatch.on("load.bar", function(stateById) {
         .attr("height", y(0) - y(d.total));
   });
 });
-
 // A pie chart to show population by age group; uses the "pie" namespace.
 dispatch.on("load.pie", function(stateById) {
-  var width = 880,
-      height = 460,
+  var width = 380,
+      height = 440,
       radius = Math.min(width, height) / 2;
 
   var color = d3.scale.ordinal()
@@ -109,9 +108,8 @@ dispatch.on("load.pie", function(stateById) {
       .range(["#E92CAC", "#2CE9DC"]);
 
   var arc = d3.svg.arc()
-      .outerRadius(radius - 10)
-      .innerRadius(radius - 70);
-
+      .outerRadius(radius - 50)
+      .innerRadius(radius - 120);
   var pie = d3.layout.pie()
       .sort(null);
 
