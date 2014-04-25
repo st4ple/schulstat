@@ -20,16 +20,16 @@
 <body>
     <div class="container">
         <div class="page-header">
-            <h1 id="home">schulstat <small>Volksschuldaten Kanton Bern</small></h1>
+            <h1 id=home>schulstat <small>Volksschuldaten Kanton Bern</small></h1>
         </div>
         <p class="lead">Willkommen zur Open Data App von Oliver Stapleton und Arun Sittampalam.</p>
         <p>Diese Website wurde im Frühling 2014 im Rahmen der Vorlesung <a href="http://www.iwi.unibe.ch/content/studium/veranstaltungen/resource/open_data_datenmanagement_und_visualisierung/index_ger.html">Open Data: Datenmanagement und Visualisierung</a> der Universität Bern erstellt. Ziel war es, eine Applikation zur Visualierung von öffentlich frei zugänglichen Daten ("Open Data") mithilfe der <a href="http://d3js.org">JavaScript Library D3.js</a> zu entwickeln.</p>
-        <p>Unsere Visualisierungen basieren auf den Volksschuldaten des Kanton Bern aus dem Jahre 2012, welche auf der <a href="http://www.erz.be.ch/erz/de/index/direktion/organisation/generalsekretariat/statistik/schul-_und_gemeindetabellen.html">Website des Kantons</a> zum Herunterladen verfügbar sind.</p>
+        <p>Unsere Visualisierungen basieren auf den Volksschuldaten des Kanton Bern aus dem Jahre 2012, welche auf der <a href="http://www.erz.be.ch/erz/de/index/direktion/organisation/generalsekretariat/statistik/schul-_und_gemeindetabellen.html">Website des Kanton</a> zum Herunterladen verfügbar sind.</p>
         <h4>Shortcuts</h4>
         <div class="row">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="#karten"><img src="images/map.png" alt="..."></a>
+                    <a href="#"><img src="images/map.png" alt="..."></a>
                     <div class="caption">
                         <a href="#karten">zu den Kartenvisualisierungen</a>
                     </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="#balken"><img src="images/bar.png" alt="..."></a>
+                    <a href="#"><img src="images/bar.png" alt="..."></a>
                     <div class="caption">
                         <a href="#">zu den Balkendiagrammen</a>
                     </div>
@@ -45,7 +45,7 @@
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="#kreis"><img src="images/kreis.png" alt="..."></a>
+                    <a href="#"><img src="images/kreis.png" alt="..."></a>
                     <div class="caption">
                         <a href="#">zu den Kreisdiagrammen</a>
                     </div>
@@ -57,9 +57,11 @@
         <ul>
             <li><a href=#visual>Visualierungen</a>
                 <ul>
-                    <li><a href=#karten>Kartendiagramme</a></li>
-                    <li><a href=#balken>Balkendiagramme</a></li>
-                    <li><a href=#kreis>Kreisdiagramme</a></li>
+                    <li><a href=#gemeinden>Gemeinden und Verwaltungskreise</a></li>
+                    <li><a href=#fremd>Anteile fremdsprachiger und ausländischer Schüler</a></li>
+                    <li><a href=#stufen>Bildungsstufen</a></li>
+                    <li><a href=#sprachen>Unterrichtssprachen</a></li>
+                    <li><a href=#trager>Kostenträger</a></li>
                 </ul>
             </li>
             <li><a href=#doc>Dokumentation</a>
@@ -71,51 +73,111 @@
         </ul>
         <hr/>
         <h1 id=visual>Visualisierungen</h1>
-        <p>todo</p>
+        <p>Die Volksschuldaten sind eine Zusammenstellung der Anzahl Schüler, davon ausserdem der Anzahl Mädchen, Fremdsprachigen und Ausländer, pro Schultyp und Schule von sämtlichen Schulen auf dem Gebiet des Kanton Bern aus dem Jahr 2012 (Stichtag 15.9.2012).</p>
+        <p>Ein Schultyp gehört zu einer der drei Bildungsstufen Vorschulstufe, Primarstufe und Sekundarstufe I. Die Schulen sind jeweils einer politischen Gemeinde zugeteilt und die Gemeinden einem Verwaltungskreis. Der Kanton Bern hat zehn Verwaltungskreise, welche zusammen auf 388 Gemeinden beinhalten. In 341 dieser Gemeinden gibt es mindestens eine Schule. Zu jeder Schule werden ausserdem die Unterrichtssprache (Deutsch, Französisch oder Englisch) sowie der Kostenträger (öffentlich, subventioniert oder nicht subventioniert) geliefert.</p>
+        <p>Die folgenden Visualisierungen beziehen sich auf die aus diesen Daten gewonnen Informationen und Erkenntnisse. Wir haben mit verschiedenen Formen von Visualisierungen experimentiert und uns nicht nur auf eine Darstellungsart beschränkt.</p>
         <hr/>
-        <h3 id=karten>Karten</h3>
+        <h3 id=gemeinden>Gemeinden, Verwaltungskreise und Anzahl Schüler</h3>
         <p>Diese Karten zeigen jeweils den Kanton Bern unterteilt nach den Gebieten der einzelnen Gemeinden. Unter der Überschrift befindet sich jeweils eine Farbskala als Legende. Die Farbe Schwarz bedeutet in der Regel, dass diese Gemeinde keine Schulen besitzt (ausser bei den Karten mit den einzelnen Schulstufen).
         </p><p><strong>Hinweis:</strong> Um den Namen einer Gemeinde sowie den auf der Karte dargestellten nummerischen Wert zu erfahren, einfach die Maus über das entsprechende Gebiet bewegen.</p>
         <hr/>
-        <iframe src="schuler.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <iframe  id=1 src="schuler.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p><a href=schuler.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Auf der Karte ist deutlich zu erkennen, dass sich die Gemeinden mit grosser Schüleranzahl (>1000), mit Ausnahmen der Städte und Umgebungen von Biel, Thun, Burgdorf, Langenthal, Langnau und Lyss, vor allem in der Agglomeration der Stadt Bern befinden. Die Mehrheit der Berner Gemeinden hat aber eine Schüleranzahl im kleinen dreistelligen Bereich.</p>
         <hr/>
-        <iframe src="fremd.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <iframe  id=2 src="kreise.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a href=kreise.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Diese Karte dient zum besseren Verständnis der nachfolgenden Darstellungen, zu sehen ist die Aufteilung der einzelnen Gemeinden auf die verschiedenen Verwaltungskreise. Die Farbenzuteilung der Verwaltungskreise ist auf allen Darstellungen die gleiche.</p>
+        <hr/>
+        <iframe  id=3 src="treemap.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 960px"></iframe>
+        <p><a href=treemap.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Die verschiedenen Farben in dieser "Treemap" stehen für die verschiedenen Verwaltungskreise (Legende siehe oben). Die Fläche, welche jede dieser Farben deckt, wird anhand der Gewichtung (Anzahl Schüler oder Anzahl Gemeinden pro Verwaltungskreis) zugewiesen. In den Verwaltungskreisen sind ausserdem deren Gemeinden, ebenfalls nach der Gewichtung, eingezeichnet. Die Verwaltungskreise kann man anklicken um eine detailiertere Ansicht zu erhalten.</p>
+        <hr/>
+        <iframe  id=4 src="sunburst.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a href=sunburst.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Dieser "Sunburst" enthält genau die gleichen Informationen mit denselben Farben wie die "Treemap" oben. Im inneren Kreis werden die Verwaltungskreise mit Gewichtung dargestellt, im äusseren Kreis zudem die einzelnen Gemeinden.</p>
+        <p></p>
+        <hr/>
+        <h3 id=fremd>Anteile fremdsprachiger und ausländischer Schüler</h3>
+        <p></p>
+        <hr/>
+        <iframe  id=5 src="fremd.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p><a href=fremd.html>Direktlink zu dieser Visualiserung</a></p>
         <hr/>
-        <iframe src="aus.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <iframe  id=6 src="aus.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p><a href=aus.html>Direktlink zu dieser Visualiserung</a></p>
         <hr/>
-        <iframe src="vor.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <iframe  id=7 src="sprakreis.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 500px; height: 520px"></iframe>        
+        <iframe src="sprakreis.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 500px; height: 520px"></iframe>        
+        <p><a href=sprakreis.html>Direktlink zu dieser Visualiserung</a></p>
+        <hr/>
+        <iframe  id=8 src="auskreis.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 500px; height: 520px"></iframe>        
+        <iframe src="auskreis.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 500px; height: 520px"></iframe>        
+        <p><a href=auskreis.html>Direktlink zu dieser Visualiserung</a></p>        
+        <hr/>
+        <h3 id=stufen>Bildungsstufen</h3>
+        <p>Die erhobenen Volksschuldaten beziehen sich auf die reguläre Schulzeit, welche die Bildungsstufen Vorschulstufe (Dauer: 1-2 Jahre), Primarstufe (6 Jahre) und Sekundarstufe I (3 Jahre) umfasst.</p>
+        <hr/>
+        <iframe  id=9 src="schustufen.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 550px"></iframe>
+        <p><a href=schustufen.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Wie anhand der Balken zu erkennen ist, verteilen sich die Schüler ungefähr proportional zur Dauer auf die drei Bildungsstufen.</p>
+        <hr/>
+        <iframe  id=10 src="verstufe.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px"></iframe>
+        <p><a href=verstufe.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Diese Proportionen bleiben auch bei der Aggregation nach den einzelnen Verwaltungskreisen erhalten.</p>
+        <hr/>
+        <p>Nun wieder ein Blick auf die einzelnen Gemeinden. Welche Gemeinden welche Bildungsstufen anbieten:</p>
+        <iframe  id=11 src="vor.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p><a href=vor.html>Direktlink zu dieser Visualiserung</a></p>
         <hr/>
-        <iframe src="pri.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <iframe  id=12 src="pri.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p><a href=pri.html>Direktlink zu dieser Visualiserung</a></p>
         <hr/>
-        <iframe src="sek.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <iframe  id=13 src="sek.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p><a href=sek.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Die Primarstufe ist jene Stufe, welche am häufigsten in einer Gemeinde vorhanden ist. Nur sehr wenige Gemeinden bieten keine Primarstufe an. Dahinter folgt die Vorschulstufe, auf welche auch nur einzelne Gemeinden in ländlichen Gebieten verzichten. Bei der Sekundarstufe I ist zu erkennen, dass dpch bereits einige kleinere, ländliche Gemeinden darauf verzichten und ihre Sekundarschüler in regionale Schulhäuser schicken, welche den Bedarf für mehrere Gemeinden abdecken.</p>
         <hr/>
-        <iframe src="stufen.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-        <p><a href=stufen.html>Direktlink zu dieser Visualiserung</a></p>
+        <iframe id=14 src="stufen.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a  href=stufen.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Auf dieser zusammenfassenden Karte ist deutlich zu erkennen, dass vor allem flächenmässig kleinere Gemeinden auf einzelne Bildungsstufen verzichten, was eher auf die (flächenmässig) kleineren Gemeinden z.B. im Berner Jura zutrifft als auf die (flächenmässig) grösseren Gemeinden im Berner Oberland.</p>
         <hr/>
-        <iframe src="sprachen.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <iframe  id=15 src="stufentyp.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <p><a href=stufentyp.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Der Vollständigkeit halber muss hier noch erwähnt werden, dass in den Volksschuldaten noch eine feinere Unterscheidung der Bildungsstufen vorhanden ist: Bei der Primarstufe und der Sekundarstufe I wird zusätzlich nach dem Schultyp unterschieden. Diese hierarchie wird im Baumdiagramm oben dargestellt. In Klammern steht die Anzahl Schüler der jeweiligen Bildungsstufe bzw. des jeweiligen Schultyps.</p>
+        <hr/>
+        <h3 id=sprachen>Sprachen</h3>
+        <p>Der Kanton Bern verfügt über zwei Amtssprachen, in welchen natürlich in den jeweiligen Gebieten auch unterrichtet wird. </p>
+        <hr/>
+        <iframe  id=16 src="schuspr.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 550px"></iframe>
+        <p><a href=schuspr.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Deutsch ist im Kanton Bern die vorherrschende Sprache, pro ein Schüler mit Unterrichtssprache Französisch gibt es ungefähr deren zehn mit Unterrichtssprache Deutsch. Englisch wird ebenfalls ganz vereinzelt unterrichtet (und, wie wir <a href="">später</a> sehen werden, ausschliesslich an Privatschulen).</p>
+        <hr/>
+        <iframe  id=17 src="sprachen.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p><a href=sprachen.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Der Blick auf die Karte zeigt, dass es natürlich vor allem von der geographischen Lage abhängt, welche Sprache unterrichtet wird. An der Deutsch-Französischen Sprachgrenze gibt es einige Bilingue-Gemeinden, ansonsten sind Bern (zusätzlich Französisch), Muri, Saanen und Hasliberg (alle Englisch) mit ihren Privatschulen die einzigen Gemeinden mit mehr als einer Unterrichtssprache.</p>
         <hr/>
-        <h3 id=balken>Balkendiagramme</h3>
-        <p>todo</p>
+        <h3 id=trager>Träger</h3>
+        <p>Den volksschuldaten sind ebenfalls die Kostenträger jeder einzelnen Schule zu entnehmen. Es werden drei Unterscheidungen gemacht, nämlich gibt es einerseits  die Öffentlichen Schulen sowie andererseits die subventionierten und die nicht subventionierten (Privat-)Schulen.</p>
         <hr/>
-        <iframe src="verstufe.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px"></iframe>
-        <p><a href=verstufe.html>Direktlink zu dieser Visualiserung</a></p>
-        <hr/>
-        <iframe src="tragstufe.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px"></iframe>
+        <iframe id=19 src="tragstufe.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px"></iframe>
         <p><a href=tragstufe.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Die Privatschulen spielen im Kanton Bern eine sehr untergeordnete Rolle; nur einer aus ca. 27 Schülern besucht eine Privatschule. Allerdings scheint sich die relative Verteilung der Schüler auf die Bildungsstufen in den Privatschulen von derjenigen der öffentlichen Schulen zu unterscheiden.</p>
         <hr/>
-        <h3 id=kreis>Kreisdiagramme</h3>
-        <p>todo</p>
+        <iframe id=20 src="trastu.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 250px"></iframe>
+        <p><a href=trastu.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Tatsächlich, die Sekundarstufe I ist in den Privatschulen deutlich übervertreten, während die Primar- und Vorschulstufen untervertreten sind. Es ist der Trend zu erkennen, je weniger die öffentliche Hand an eine Schule beisteuert, desto grösser ist dort der Anteil Schüler in der Sekundarstufe I.</p>
         <hr/>
-        <iframe src="auskreis.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 500px; height: 550px"></iframe>        
-        <iframe src="auskreis.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 500px; height: 550px"></iframe>        
-        <p><a href=auskreis.html>Direktlink zu dieser Visualiserung</a></p>
+        <iframe id=21 src="fretra.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 250px"></iframe>
+        <p><a href=fretra.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>An subventionierten Privatschulen sind anteilsmässig etwas weniger fremdsprachige Schüler als an öffentlichen Schulen anzutreffen, an nicht suvbentionierten Privatschulen hingegen etwas mehr. Es ist nicht wirklich ein Trend zu erkennen.</p>
+        <hr/>
+        <iframe id=22 src="austra.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 250px"></iframe>
+        <p><a href=austra.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>An privaten Schulen gibt es tendenziell einen etwas höheren Ausländeranteil, dies ist nicht zuletzt auch drauf zurückzuführen, dass die (privaten) internationalen Schulen in Saanen, Hasliberg und Muri zu sehr grossen Teilen aus Schülern aus anderen Nationen bestehen.</p>
+        <hr/>
+        <iframe id=23 src="ge.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 250px"></iframe>
+        <p><a href=ge.html>Direktlink zu dieser Visualiserung</a></p>
+        <p>Während es an den öffentlichen und den subventionierten Schulen nur sehr gering mehr Jungen als Mädchen hat (51% respektive 53% Jungen), liegt dieser Anteil bei den nicht subventionierten Schulen um einiges höher auf 63%. </p>
         <hr/>
         <h1 id=doc>Dokumentation</h1>
         <p>Auf den folgenden Zeilen befinden sich eine Erläuterung zu unserem Vorgehen zusammen mit den verwendeten Tools und sonstigen Referenzen sowie eine Auflistung aller Daten und Dateien, auf welchen unsere Visualisierungen basieren.</p>

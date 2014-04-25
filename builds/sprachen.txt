@@ -1,1 +1,1 @@
-topojson -o sprachen.json -e sprachen.csv -p rate=+rate,name -- topojson.json
+topojson -o sprachen.json -e sprachen.csv -p rate=+rate,name -- topojson.json/Users/ojs/Dropbox/UNI/BWL/Open Data/App/schuspr.csv
