@@ -1,53 +1,15 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/map.css">
 </head>
-<style>
-    .legend {
-  font-size: 12px;
-}
-body {    
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-div.tooltip {   
-  position: absolute;           
-  text-align: left;           
-  width: 100px;                  
-  height: 25px;                 
-  padding: 2px;             
-  font-size: 10px;     
-  background: #EBEBEB;
-  border: 1px;      
-  border-radius: 5px;
-  border-color: #000;
-  pointer-events: none;         
-}    
-
-
-.key path {
-  display: none;
-}
-
-.key line {
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.grenze {
-  fill: none;
-  stroke: #cfcfcf;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-</style>
 <body>
-    <h4>Anteil ausländischer Kinder <small>pro Gemeinde</small></h4>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/topojson.v1.min.js"></script>
+    
+    <h4>Anteil ausländischer Schüler <small>pro Gemeinde</small></h4>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
 <script>
     
 var width = 960,
@@ -94,10 +56,10 @@ d3.json("data/aus.json", function(error, be) {
   
   //Adding tooltips
   .on("mouseover", function(d) {
-    d3.select(this).transition().duration(300).style("opacity", 1);
+    d3.select(this).transition().duration(300).style("opacity", 0.5);
     div.transition().duration(300)
-    .style("opacity", 1)
-    div.text(d.properties.name + ": " + Math.round(10000*d.properties.rate)/100 + "%")
+    .style("opacity", 0.8)
+    div.text(d.properties.name + ": " + Math.round(100*100*d.properties.rate)/100 + "%")
     .style("left", (d3.event.pageX) + "px")
     .style("top", (d3.event.pageY -30) + "px")    
   })

@@ -6,10 +6,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
 </head>
-<head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-</head>
 <style>
 
 body {
@@ -48,14 +44,11 @@ form {
 <body>
 <h4>Verteilung Schüler <small>auf Kostenträger und Bildungstufen</small></h4>
 <form>
-  <label><input type="radio" name="mode" value="multiples" checked> Bildungsstufen </label>
-  <label><input type="radio" name="mode" value="stacked"> Total</label>
+  <label>Bildungsstufen <input type="radio" name="mode" value="multiples" checked> getrennt </label>
+  <label><input type="radio" name="mode" value="stacked"> zusammen</label>
 </form>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/d3.v3.min.js"></script>
 <script>
-
-var 
-    formatDate = function(d) { return "Kreis x"; };
 
 var margin = {top: 10, right: 20, bottom: 60, left: 100},
     width = 960 - margin.left - margin.right,

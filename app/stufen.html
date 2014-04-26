@@ -1,48 +1,19 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/map.css">
 </head>
-<style>
-    .legend {
-  font-size: 12px;
-}
-body {    
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-div.tooltip {   
-  position: absolute;           
-  text-align: left;           
-  width: 100px;                  
-  height: 25px;                 
-  padding: 2px;             
-  font-size: 10px;     
-  background: #EBEBEB;
-  border: 1px;      
-  border-radius: 5px;
-  border-color: #000;
-  pointer-events: none;         
-}    
-
-.grenze {
-  fill: none;
-  stroke: #ffffff;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-    
-</style>
 <body>
-        <h4>Anzahl Schulstufen <small>pro Gemeinde</small></h4>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/topojson.v1.min.js"></script>
+    
+    <h4>Anzahl Schulstufen <small>pro Gemeinde</small></h4>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
 <script>
     
 var width = 960,
-    height =600;
+    height = 600;
     
 // Setting color domains(intervals of values) for our map
 var color_domain = [0, 1, 2, 3]
@@ -50,7 +21,7 @@ var ext_color_domain = [0, 1, 2, 3]
 var legend_labels = ["keine", "1", "2", "3"]              
 var color = d3.scale.threshold()
 .domain(color_domain)
-.range(["#000000", "#000000", "#00ADEF", "#EC008C", "FFF200"]);
+.range(["#000000", "#000000", "#EC008C", "#00ADEF", "#FFF200"]);
 //.range(["#000", "fbff93", "#f6ea7d", "#eece67", "#e6b053", "#de8f40", "#d56c2e", "#cd481d", "#c5220e", "#bd0004"]);
 
 var div = d3.select("body").append("div")   
@@ -84,10 +55,10 @@ d3.json("data/stufen.json", function(error, be) {
   
   //Adding tooltips
   .on("mouseover", function(d) {
-    d3.select(this).transition().duration(300).style("opacity", 1);
+    d3.select(this).transition().duration(300).style("opacity", 0.5);
     div.transition().duration(300)
-    .style("opacity", 1)
-    div.text(d.properties.name + ": " + d.properties.rate + " Stufen")
+    .style("opacity", 0.8)
+    div.text(d.properties.name + ": " + d.properties.rate)
     .style("left", (d3.event.pageX) + "px")
     .style("top", (d3.event.pageY -30) + "px")    
   })

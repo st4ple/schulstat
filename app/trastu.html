@@ -23,18 +23,17 @@ svg {
 </style>
 <body>
 <h4>Relativer Anteil Schüler <small>pro Bildungsstufe und Kostenträger</small></h4>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/d3.v3.min.js"></script>
 <script>
 
-var radius = 74,
+var radius = 110,
     padding = 10;
 
-var color = d3.scale.ordinal()
-    .range(["blue", "green", "red"]);
+var color = d3.scale.category10();
 
 var arc = d3.svg.arc()
     .outerRadius(radius)
-    .innerRadius(radius - 30);
+    .innerRadius(radius - 50);
 
 var pie = d3.layout.pie()
     .sort(null)
@@ -51,8 +50,8 @@ d3.csv("data/trastu.csv", function(error, data) {
 
   var legend = d3.select("body").append("svg")
       .attr("class", "legend")
-      .attr("width", radius * 2)
-      .attr("height", radius * 2)
+      .attr("width", radius*1.5)
+      .attr("height", radius*2)
     .selectAll("g")
       .data(color.domain().slice().reverse())
     .enter().append("g")

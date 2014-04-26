@@ -9,10 +9,10 @@
 <style>
 
 .bar {
-  fill: steelblue;
+  opacity: 0.9;
 }
 .bar:hover {
-  fill: red;
+  opacity: 1;
 }
 
 .axis text {
@@ -35,13 +35,15 @@
 <h4>Verteilung Schüler <small>auf Bildungsstufen</small></h4>
 </body>
 <svg class="chart"></svg>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/d3.v3.min.js"></script>
 <script>
 
 var margin = {top: 20, right: 30, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
+var color = d3.scale.category10();
+    
 var x = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1);
 
@@ -82,7 +84,9 @@ d3.csv("data/schustufen.csv", type, function(error, data) {
       .attr("x", function(d) { return x(d.name); })
       .attr("y", function(d) { return y(d.value); })
       .attr("height", function(d) { return height - y(d.value); })
-      .attr("width", x.rangeBand());
+      .attr("width", x.rangeBand())
+      .style("fill", function(d) { return color(d.name); });
+;
 });
 
 function type(d) {

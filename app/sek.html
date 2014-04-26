@@ -1,53 +1,15 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/map.css">
 </head>
-<style>
-    .legend {
-  font-size: 12px;
-}
-body {    
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-div.tooltip {   
-  position: absolute;           
-  text-align: left;           
-  width: 100px;                  
-  height: 25px;                 
-  padding: 2px;             
-  font-size: 10px;     
-  background: #EBEBEB;
-  border: 1px;      
-  border-radius: 5px;
-  border-color: #000;
-  pointer-events: none;         
-}    
-
-
-.key path {
-  display: none;
-}
-
-.key line {
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.grenze {
-  fill: none;
-  stroke: #cfcfcf;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-</style>
 <body>
-        <h4>Sekundarstufe I <small>in Gemeinde vorhanden</small></h4>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/topojson.v1.min.js"></script>
+    
+    <h4>Sekundarstufe I <small>in Gemeinde vorhanden</small></h4>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
 <script>
     
 var width = 960,
@@ -59,7 +21,7 @@ var ext_color_domain = [0, 1]
 var legend_labels = ["nein", "ja"]              
 var color = d3.scale.threshold()
 .domain(color_domain)
-.range(["#FDFF6A", "#454545", "#245BFF"]);
+.range(["#FDFF6A", "#454545", "#2ca02c"]);
 //.range(["#000", "fbff93", "#f6ea7d", "#eece67", "#e6b053", "#de8f40", "#d56c2e", "#cd481d", "#c5220e", "#bd0004"]);
 
 var div = d3.select("body").append("div")   
@@ -93,9 +55,9 @@ d3.json("data/sek.json", function(error, be) {
   
   //Adding tooltips
   .on("mouseover", function(d) {
-    d3.select(this).transition().duration(300).style("opacity", 1);
+    d3.select(this).transition().duration(300).style("opacity", 0.5);
     div.transition().duration(300)
-    .style("opacity", 1)
+    .style("opacity", 0.8)
     div.text(d.properties.name + ": " + (d.properties.rate==1?"ja" : "nein"))
     .style("left", (d3.event.pageX) + "px")
     .style("top", (d3.event.pageY -30) + "px")    
@@ -138,6 +100,5 @@ d3.json("data/sek.json", function(error, be) {
   .text(function(d, i){ return legend_labels[i]; });
 
 });    
-
 
 </script>
