@@ -1,1 +1,1 @@
-topojson -o fremd.json -e fremd.csv -p rate=+rate,name -- topojson.json
+topojson -o fre.json -e fre.csv -p rate=+rate,name -- topojson.json
