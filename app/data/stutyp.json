@@ -2,10 +2,7 @@
  "name": "Alle", "size": 101914,
  "children": [
   {
-   "name": "Vorschulstufe",  "size": 17285,
-   "children": [
-    {"name": "Vorschulstufe", "size": 17285}
-   ]
+   "name": "Vorschulstufe",  "size": 17285
   },
   {
    "name": "Primarstufe", "size": 54766,

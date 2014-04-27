@@ -1,6 +1,12 @@
 {
  "name": "flare",
  "children": [
+    {
+   "name": "empty",
+   "children": [
+    {"name": "", "size": 0}
+   ]
+  },
   {
    "name": "Jura Bernois",
    "children": [
