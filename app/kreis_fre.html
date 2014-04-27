@@ -19,25 +19,25 @@
 
 </style>
 <body>
-<h4>Total Schüler und Anteil Ausländer <small>pro Verwaltungskreis</small></h4>
+<h4>Total Schüler und Anteil Fremdsprachige <small>pro Verwaltungskreis</small></h4>
 
 <script src="js/d3.v3.min.js"></script>
 <script>
 
 var dispatch = d3.dispatch("load", "statechange");
-    
+
 // Spaltentitel, ausser erste
 var groups = [
     "Anzahl_Einl",
     "Anzahl_Ausl",
 ];
 
-d3.csv("data/auskreis.csv", type, function(error, states) {
+d3.csv("data/sprakreis.csv", type, function(error, states) {
   if (error) throw error;
   var stateById = d3.map();
   states.forEach(function(d) { stateById.set(d.id, d); });
   dispatch.load(stateById);
-  dispatch.statechange(stateById.get("Bern-Mittelland"))
+  dispatch.statechange(stateById.get("Bern-Mittelland"));
 });
 
 // A drop-down menu for selecting a state; uses the "menu" namespace.
@@ -105,7 +105,7 @@ dispatch.on("load.pie", function(stateById) {
 
   var color = d3.scale.ordinal()
       .domain(groups)
-      .range(["#E92CAC", "#2CE9DC"]);
+      .range(['rgb(204,236,230)', 'rgb(35,139,69)']);
 
   var arc = d3.svg.arc()
       .outerRadius(radius - 50)

@@ -59,7 +59,7 @@ d3.json("data/sprachen.json", function(error, be) {
     d3.select(this).transition().duration(300).style("opacity", 0.5);
     div.transition().duration(300)
     .style("opacity", 0.8)
-    div.text(d.properties.name + ": " + d.properties.rate)
+    div.text(d.properties.name + ": " + (d.properties.rate==1?"FR" : "") + (d.properties.rate==2?"DE / FR" : "") + (d.properties.rate==3?"DE" : "") + (d.properties.rate==4?"DE / EN" : ""))
     .style("left", (d3.event.pageX) + "px")
     .style("top", (d3.event.pageY -30) + "px")    
   })

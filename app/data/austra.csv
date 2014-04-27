@@ -1,4 +1,4 @@
-id,Ausländer,Schweizer
-Öffentliche Schule,14543,84062
-Subventionierte Schule,378,1830
-Nicht subventionierte Schule,211,890
+id,Schweizer,Ausländer
+Öffentliche Schule,84062,14543
+Subventionierte Schule,1830,378
+Nicht subventionierte Schule,890,211

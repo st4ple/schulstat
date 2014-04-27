@@ -8,85 +8,71 @@
     <script src="js/d3.v3.min.js"></script>
     <script src="js/topojson.v1.min.js"></script>
     
-    <h4>Demographische Anteile <small>pro Gemeinde</small></h4>
+    <h4>Welche Bildungsstufen <small>gibt es in welchen Gemeinden</small></h4>
     <form>
-      <label> <input type="radio" name="mode" value="fre" checked> Fremdsprachige</label>
-      <label><input type="radio" name="mode" value="aus"> Ausländer</label>
-      <label><input type="radio" name="mode" value="ges"> Geschlechetr</label>
+      <label><input type="radio" name="mode" value="vor" checked> Vorschulstufe</label>
+      <label><input type="radio" name="mode" value="pri"> Primarstufe</label>
+      <label><input type="radio" name="mode" value="sek"> Sekundarstufe I</label>
     </form>
-<script>
+
+    <script>
     
 var width = 960,
     height =600;
     
-var blue = ['rgb(236,231,242)','rgb(208,209,230)','rgb(166,189,219)','rgb(116,169,207)','rgb(54,144,192)','rgb(5,112,176)','rgb(3,78,123)'];
-var green = ['rgb(229,245,249)','rgb(204,236,230)','rgb(153,216,201)','rgb(102,194,164)','rgb(65,174,118)','rgb(35,139,69)','rgb(0,88,36)'];
-var brown = ['rgb(255,247,188)','rgb(254,227,145)','rgb(254,196,79)','rgb(254,153,41)','rgb(236,112,20)','rgb(204,76,2)','rgb(140,45,4)'];
-
 // Setting color domains(intervals of values) for our map
-var color_domain = [0.05, 0.10, 0.15, 0.20, 0.30, 0.40]
-var ext_color_domain = [0, 0.05, 0.10, 0.15, 0.20, 0.30, 0.40]
-var legend_labels = ["0%", "5%", "10%", "15%", "20%", "30%", ">40%"]              
-var color = d3.scale.threshold()
-    .domain(color_domain)
-    .range(green);
-    
-var value = "fre";
-
-    
+var color_domain = [1]
+var ext_color_domain = [0, 1]
+var legend_labels = ["nein", "ja"]
+var tone = "#1f77b4"
+var value = "vor";
+        
+//Tooltips
 var div = d3.select("body").append("div")   
 .attr("class", "tooltip")               
 .style("opacity", 0);
-
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-var g = svg.append("g")
-    .attr("class", "key");
-
 var path = d3.geo.path()
     .projection(null);
-
+        
 //Adding the legend
 var legend = svg.selectAll("g.legend")
     .data(ext_color_domain)
     .enter().append("g")
     .attr("class", "legend");
-    
 var write_legend = 1;
     
 //update map when input changes
   d3.selectAll("input").on("change", function change() {
     value = this.value;
-    if (value=="fre") {
-            var color = d3.scale.threshold()
-                .domain(color_domain)
-                .range(green);
-        }
-    else {
-       var color = d3.scale.threshold()
-                .domain(color_domain)
-                .range(blue);
-        };
+    if (value=="vor") tone ="#1f77b4";
+    if (value=="pri") tone ="#ff7f0e";
+    if (value=="sek") tone ="#2ca02c";
+    
     write_legend = 0;
-    update(this.value,color);
+    
+    update(this.value,tone);
 });
 
 //initial map to display 
-update(value, color);
-    
-
+update(value, tone);
 
 //draw map for given value and tone
-function update(demo, color) {
+function update(stufe, tone) {
     
     var g = svg.append("g")
         .attr("class", "key");
+    
+    var color = d3.scale.threshold()
+        .domain(color_domain)
+        .range(["#454545", tone]);
 
     //Reading topojson file
-    d3.json("data/" + demo + ".json", function(error, be) {
+    d3.json("data/" + stufe + ".json", function(error, be) {
         if (error) return console.error(error);
 
 
@@ -100,22 +86,22 @@ function update(demo, color) {
             .attr("d", path)
             .style("fill", function(d) { return color(d.properties.rate); })
 
-  //Adding tooltips
-  .on("mouseover", function(d) {
-    d3.select(this).transition().duration(300).style("opacity", 0.5);
-    div.transition().duration(300)
-    .style("opacity", 0.8)
-    div.text(d.properties.name + ": " + Math.round(100*100*d.properties.rate)/100 + "%")
-    .style("left", (d3.event.pageX) + "px")
-    .style("top", (d3.event.pageY -30) + "px")    
-  })
-  .on("mouseout", function() {
-    d3.select(this)
-    .transition().duration(300)
-    .style("opacity", 1);
-    div.transition().duration(300)
-    .style("opacity", 0);
-  })
+        //Adding tooltips
+        .on("mouseover", function(d) {
+            d3.select(this).transition().duration(300).style("fill", "grey");
+            div.transition().duration(300)
+                .style("opacity", 0.8)
+            div.text(d.properties.name + ": " + (d.properties.rate==1?"ja" : "nein"))
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY -30) + "px")    
+        })
+        .on("mouseout", function() {
+            d3.select(this)
+                .transition().duration(300)
+                .style("opacity", 1).style("fill", function(d) { return color(d.properties.rate)});
+            div.transition().duration(500)
+                .style("opacity", 0);
+        })
 
         //Painting borders
         svg.append("path")
@@ -129,7 +115,7 @@ function update(demo, color) {
 
         legend.append("rect")
             .attr("x", 20)
-            .attr("y", function(d, i){ return 240 - (i*ls_h) - 2*ls_h;})
+            .attr("y", function(d, i){ return 100 - (i*ls_h) - 2*ls_h;})
             .attr("width", ls_w)
             .attr("height", ls_h)
             .style("fill", function(d, i) { return color(d); })
@@ -137,7 +123,7 @@ function update(demo, color) {
         if (write_legend==1){
             legend.append("text")
                 .attr("x", 50)
-                .attr("y", function(d, i){ return 240 - (i*ls_h) - ls_h - 4;})
+                .attr("y", function(d, i){ return 100 - (i*ls_h) - ls_h - 4;})
                 .text(function(d, i){ return legend_labels[i]; });
         }
     }
