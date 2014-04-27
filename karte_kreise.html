@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/map.css">
+</head>
+<body>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/topojson.v1.min.js"></script>
+    
+    <h4>Verwaltungskreise <small>des Kanton Bern</small></h4>
+
+<script>
+    
+var width = 960,
+    height =600;
+    
+// Setting color domains(intervals of values) for our map
+var color_domain = [242, 243, 244, 245, 246, 247, 248, 249, 250]
+var ext_color_domain = [241, 242, 243, 244, 245, 246, 247, 248, 249, 250]
+var legend_labels = ["Jura Bernois", "Biel/Bienne", "Seeland", "Oberaargau", "Emmental", "Bern-Mittelland", "Thun", "Obersimmental-Saanen", "Frutigen-Niedersimmental","Interlaken-Oberhasli"];
+var color = d3.scale.threshold()
+.domain(color_domain)
+.range(["#6baed6", "#c6dbef", "#74c476", "#fdd0a2",  "#e6550d", "#9ecae1", "#a1d99b","#31a354", "#fd8d3c", "#fdae6b", "#000"]);
+
+var div = d3.select("body").append("div")   
+.attr("class", "tooltip")               
+.style("opacity", 0);
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var g = svg.append("g")
+    .attr("class", "key")
+
+var path = d3.geo.path()
+    .projection(null);
+
+//Reading topojson file
+d3.json("data/kreise.json", function(error, be) {
+  if (error) return console.error(error);
+
+  //Painting surfaces
+  svg.append("g")
+      .attr("transform", "translate(-130,0)")
+      .attr("class", "county")
+    .selectAll("path")
+      .data(topojson.feature(be, be.objects.municipalities).features)
+    .enter().append("path")
+      .attr("d", path)
+      .style("fill", function(d) { return color(d.properties.rate); })
+  
+  //Adding tooltips
+  .on("mouseover", function(d) {
+    d3.select(this).transition().duration(300).style("opacity", 0.5);
+    div.transition().duration(300)
+    .style("opacity", 0.8)
+    div.text(d.properties.name + " (" + 
+             (d.properties.rate==241?"Jura Bernois" : "") + 
+             (d.properties.rate==242?"Biel/Bienne" : "") + 
+             (d.properties.rate==243?"Seeland" : "") + 
+             (d.properties.rate==244?"Oberaargau" : "") + 
+             (d.properties.rate==245?"Emmental" : "") + 
+             (d.properties.rate==246?"Bern-Mittelland" : "") + 
+             (d.properties.rate==247?"Thun" : "") + 
+             (d.properties.rate==248?"Obersimmental-Saanen" : "") + 
+             (d.properties.rate==249?"Frutigen-Niedersimmental" : "") + 
+             (d.properties.rate==250?"Interlaken-Oberhasli" : "") +
+            ")")
+    .style("left", (d3.event.pageX) + "px")
+    .style("top", (d3.event.pageY -30) + "px")    
+  })
+  .on("mouseout", function() {
+    d3.select(this)
+    .transition().duration(300)
+    .style("opacity", 1);
+    div.transition().duration(300)
+    .style("opacity", 0);
+  })
+
+  //Painting borders
+  svg.append("path")
+      .attr("transform", "translate(-130,0)")
+      .datum(topojson.mesh(be, be.objects.municipalities, function(a, b) { return a !== b; }))
+      .attr("class", "grenze")
+      .style("stroke-width", "1px")
+      .attr("d", path);
+   
+   //Adding the legend
+   var legend = svg.selectAll("g.legend")
+  .data(ext_color_domain)
+  .enter().append("g")
+  .attr("class", "legend");
+
+  var ls_w = 20, ls_h = 20;
+
+  legend.append("rect")
+  .attr("x", 20)
+  .attr("y", function(d, i){ return 230 - (i*ls_h) - 2*ls_h;})
+  .attr("width", ls_w)
+  .attr("height", ls_h)
+  .style("fill", function(d, i) { return color(d); })
+  .style("opacity", 1);
+
+  legend.append("text")
+  .attr("x", 50)
+  .attr("y", function(d, i){ return 230 - (i*ls_h) - ls_h - 4;})
+  .text(function(d, i){ return legend_labels[i]; });
+
+});    
+
+
+</script>

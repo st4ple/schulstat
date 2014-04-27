@@ -1,0 +1,36 @@
+.legend {
+  font-size: 12px;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 960px;
+}
+
+div.tooltip {   
+  position: absolute;           
+  text-align: left;           
+  width: 100px;                  
+  height: 35px;                 
+  padding: 4px;             
+  font-size: 10px;     
+  background: #000;
+  color: white;
+  border: 1px;      
+  border-radius: 5px;
+  border-color: #000;
+  pointer-events: none;         
+}    
+
+.grenze {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+form {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

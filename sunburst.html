@@ -22,23 +22,19 @@ form {
 }
 
 </style>
-    <head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-  </head>
   <body>
-              <h4>Verwaltungskreise und Gemeinden <small>Sunburst, gewichtet</small></h4>
+    <h4>Verwaltungskreise und Gemeinden <small>Sunburst, gewichtet</small></h4>
 <form>
   <label>nach Anzahl <input type="radio" name="mode" value="size" checked> Schüler</label>
   <label><input type="radio" name="mode" value="count"> Gemeinden</label>
 </form>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/d3.v3.min.js"></script>
 <script>
 
 var width = 960,
     height = 700,
     radius = Math.min(width, height) / 2,
-    color = d3.scale.category20c(); 
+    color = d3.scale.category20c();
     
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -65,7 +61,6 @@ d3.json("data/flare.json", function(error, root) {
       .attr("d", arc)
       .style("stroke", "#fff")
       .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
-      .style("fill-rule", "evenodd")
       .each(stash);
     
   d3.selectAll("input").on("change", function change() {
