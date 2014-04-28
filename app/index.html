@@ -2,7 +2,7 @@
 <html lang="de">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
-        <title>schulstat - Volksschuldaten BE</title>
+        <title>schulstat</title>
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -10,12 +10,13 @@
         <!--[if lt IE 9]>
           <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+    <script type="text/javascript"><
 
+    </script> 
         <style type="text/css">
 
 body {
   background-color: #f5f5f5;
-    
 }
             
 footer {
@@ -31,7 +32,6 @@ footer {
 }
 
 #sidebar .affix {
-
   width:220px;
 }
 
@@ -66,13 +66,14 @@ footer {
   }
 
     page-header {
-        padding-top: -200px;}
+        padding-top: -200px;
 }
-
+}
 
 /* Sidebar navigation */
 .nav-sidebar {
   background-color: #f5f5f5;
+    background-color: #5E5E5E;
   margin-right: -15px;
   margin-bottom: 20px;
   margin-left: -15px;
@@ -80,15 +81,20 @@ footer {
 .nav-sidebar > li > a {
   padding-right: 300px;
   padding-left: 20px;
+      color: #f5f5f5;
 }
-.nav-sidebar > h3 {
-  padding-right: 20px;
-  padding-left: 20px;
+.nav-sidebar > li > a > h4  {
+  color: #999;
+}
+.nav-sidebar > li > a:hover {
   color: #999;
 }
 .nav-sidebar > .active > a {
-  color: #fff;
+  color: #fff !important;
   background-color: #428bca;
+}
+.nav-sidebar > .active > a > h4{
+  color: #fff !important;
 }
 
 /*
@@ -104,10 +110,15 @@ footer {
 
 .jumbo {
   margin-bottom: 0px;
-  background-color: grey;
   margin-top: -25px;
-  padding: 40px;
+  padding-top: 100px;
+  padding-bottom: 40px;
   background-color: #428bca;
+}
+
+
+.page-header {
+    padding-top: 30px;
 }
             
 .white {
@@ -116,8 +127,8 @@ footer {
             
 @media (min-width: 768px) {
   .main {
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 .main .page-header {
@@ -139,47 +150,49 @@ iframe {
         
          <div class="col-sm-3 col-md-2 sidebar-offcanvas" role="navigation" id="sidebar">
                 <ul class="nav nav-sidebar affix">
-                     <h3>schulstat</h3>
-                    <hr/>
-                    <li class="active"><a href="#top">Start</a></li>  
-                    <li><a href="#daten">Daten</a>
+                     
+                    <li class="active"><a href="#top"><h4>schulstat</h4></a></li>  
+                    <li class="hideable"><a href="#daten">Daten </a>
                     <li><a href="#visual">Visualierungen</a>
-                    <li><a href="#gebiete">Gebiete</a></li>
-                    <li><a href="#stufen">Bildungsstufen</a></li>
-                    <li><a href="#sprachen">Sprachen</a></li>
-                    <li><a href="#trager">Kostenträger</a></li>
-                    <li><a href=#doc>Dokumentation</a></li>
-                    <li><a href="#vorgehen">Vorgehen</a></li>
-                    <li><a href="#dateien">Dateien</a></li>
+                    <li><a href="#gebiete">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gebiete</a></li>
+                    <li><a href="#stufen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bildungsstufen</a></li>
+                    <li><a href="#sprachen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sprachen</a></li>
+                    <li><a href="#trager">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kostenträger</a></li>
+                    <li class="hideable"><a href=#doc>Dokumentation</a></li>
+                    <li class="hideable"><a href="#vorgehen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vorgehen</a></li>
+                    <li class="hideable"><a href="#dateien">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dateien</a></li>
                 </ul>
         </div><!--/span-->
         
-        <div class="col-sm-9 col-md-10">
+        <div class="col-sm-10 col-md-10">
           
             <!--toggle sidebar button-->
             <p class="visible-xs">
                 <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
             </p>
-            <div id="start" class="jumbotron jumbo page-header">
+            <div id="start" class="jumbotron jumbo page-header unhide">
                 <h1 class="white">schulstat</h1>
-            <p class="lead">von <a href="mailto:oliver@stapleton.ch"  class="white">Oliver Stapleton</a> und <a href="mailto:arun@sittampalam.ch" class="white">Arun Sittampalam</a></p>
-            <p>App zur Visualisierung der <a class="white" href="http://www.erz.be.ch/erz/de/index/direktion/organisation/generalsekretariat/statistik/schul-_und_gemeindetabellen.html">Volksschuldaten</a> des <a href="be.ch/" class="white">Kanton Bern</a>. Erstellt mithilfe von <a class="white" href="http://d3js.org">D3.js</a> im Rahmen der <a class="white" href="http://www.iwi.unibe.ch/content/studium/veranstaltungen/resource/open_data_datenmanagement_und_visualisierung/index_ger.html">Open Data Vorlesung</a> der <a class="white" href="unibe.ch">Uni Bern</a> im Frühling 2014.</p>
+            <p class="lead unhide">von <a href="mailto:oliver@stapleton.ch"  class="white">Oliver Stapleton</a> und <a href="mailto:arun@sittampalam.ch" class="white">Arun Sittampalam</a></p>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            <p class="unhide">App zur Visualisierung der <a class="white" href="http://www.erz.be.ch/erz/de/index/direktion/organisation/generalsekretariat/statistik/schul-_und_gemeindetabellen.html">Volksschuldaten</a> des <a href="be.ch/" class="white">Kanton Bern</a>. Erstellt im Frühling 2014 mithilfe von <a class="white" href="http://d3js.org">D3.js</a> im Rahmen der <a class="white" href="http://www.iwi.unibe.ch/content/studium/veranstaltungen/resource/open_data_datenmanagement_und_visualisierung/index_ger.html">Open Data Vorlesung</a> der <a class="white" href="unibe.ch">Uni Bern</a>.<br/><br/>
+            <button type="button" class="btn btn-default btn-lg" style="display: none;">Text + Visualisierungen anzeigen</button>
+            <button type="button" class="btn btn-default btn-lg">Nur Visualisierungen anzeigen</button></p>
             </div>
             <div class="main">
-            <hr/>
-            <div id="daten">
-                <h3>Daten</h3>
+            <hr class="hideable"/>
+            <div id="daten" class="hideable">
+                <h2>Daten</h2>
             </div>
             <p>Die Volksschuldaten sind eine Zusammenstellung der Anzahl Schüler, davon ausserdem der Anzahl Mädchen, Fremdsprachigen und Ausländer, pro Schultyp und Schule von sämtlichen Schulen auf dem Gebiet des Kanton Bern aus dem Jahr 2012 (Stichtag 15.9.2012).</p>
             <p>Ein Schultyp gehört zu einer der drei Bildungsstufen Vorschulstufe, Primarstufe und Sekundarstufe I. Die Schulen sind jeweils einer politischen Gemeinde zugeteilt und die Gemeinden einem Verwaltungskreis. Der Kanton Bern hat zehn Verwaltungskreise, welche zusammen 381* politische Gemeinden beinhalten. In 341 dieser Gemeinden gibt es mindestens eine Schule. Zu jeder Schule werden ausserdem die Unterrichtssprache (Deutsch, Französisch oder Englisch) sowie die Kostenträgerart (öffentlich, subventioniert oder nicht subventioniert) geliefert.</p>
-            <hr/>
+                            <p><small>*Stand am Stichtag (15.9.2012). Im Januar 2014 umfasste der Kanton Bern nach diversen Fusionen noch 362 politische Gemeinden. [<a href="http://de.wikipedia.org/wiki/Gemeinden_des_Kantons_Bern">Quelle</a>]</small></p>
             <div id="visual">
-                <h1>Visualisierungen</h1>
+                <hr/>
+                <h2>Visualisierungen</h2>
             </div>
             <p>Die folgenden Visualisierungen beziehen sich auf die aus diesen Daten gewonnen Informationen und Erkenntnisse. Wir haben mit verschiedenen Formen von Visualisierungen experimentiert und uns nicht nur auf eine Darstellungsart beschränkt. Die Farben sind so gut es geht konstant, d.h. die Primarstufe wird z.B. immer in der Farbe orange dargestellt und die Sekundarstufe I in der Farbe grün usw. Bei den interaktiven Visualisierungen können unterhalb der Überschrift die Parameter ausgewählt werden, zudem befinden sich unterhalb der Visualisierungen ergänzende Worte zu deren Erkenntnis.</p>
-            <p><small>*Stand am Stichtag (15.9.2012). Im Januar 2014 umfasste der Kanton Bern nach diversen Fusionen noch 362 politische Gemeinden. [<a href="http://de.wikipedia.org/wiki/Gemeinden_des_Kantons_Bern">Quelle</a>]</small></p>
-            <hr/>
             <div id="gebiete">
+                <hr/>
                 <h3>Gebiete</h3>
             </div>
             <p>Um eine Vorstellung der geographischen Gegebenheiten im Kanton Bern zu erhalten, vorab ein paar Visualisierungen der in den Volksschuldaten enthaltenen demographischen Informationen. </p><p>
@@ -203,11 +216,11 @@ iframe {
             <p>Dieser "Sunburst" enthält genau die gleichen Informationen mit denselben Farben wie die "Treemap" oben. Im inneren Kreis werden die Verwaltungskreise mit Gewichtung dargestellt, im äusseren Kreis zudem die einzelnen Gemeinden.</p>
             <p></p>
             <hr/>
-            <iframe  id=6 src="kreis_fre_duo.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 520px"></iframe>        
+            <iframe  id=6 src="kreis_fre_duo.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px"></iframe>        
             <hr/>
-            <iframe  id=7 src="kreis_aus_duo.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 520px"></iframe>        
-            <hr/>
+            <iframe  id=7 src="kreis_aus_duo.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px"></iframe>        
             <div id="stufen">        
+                <hr/>
                 <h3>Bildungsstufen</h3>
             </div>
 
@@ -232,8 +245,8 @@ iframe {
             <hr/>
             <p>In den Volksschuldaten ist eine noch feinere Unterscheidung als die Bildungsstufe vorhanden ist: Bei der Primarstufe und der Sekundarstufe I wird zusätzlich nach dem Schultyp unterschieden. Diese Hierarchie wird im folgenden Baumdiagramm dargestellt. In Klammern steht die Anzahl Schüler der jeweiligen Bildungsstufe bzw. des jeweiligen Schultyps.</p>
             <iframe  id=12 src="baum_typ.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-            <hr/>
             <div id="sprachen">
+                <hr/>
                 <h3>Sprachen</h3>
             </div>
             <p>Der Kanton Bern verfügt über zwei Amtssprachen, in welchen natürlich in den jeweiligen Gebieten auch unterrichtet wird. </p>
@@ -243,8 +256,8 @@ iframe {
             <hr/>
             <iframe  id=14 src="karte_sprachen.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
             <p>Der Blick auf die Karte zeigt, dass es natürlich vor allem von der geographischen Lage abhängt, welche Sprache unterrichtet wird. An der Deutsch-Französischen Sprachgrenze gibt es einige Bilingue-Gemeinden, ansonsten sind Bern (zusätzlich Französisch), Muri, Saanen und Hasliberg (alle Englisch) mit ihren Privatschulen die einzigen Gemeinden mit mehr als einer Unterrichtssprache.</p>
-            <hr/>
             <div id="trager">
+                <hr/>
                 <h3>Kostenträger</h3>
             </div>
             <p>Den Volksschuldaten sind ebenfalls die Kostenträger jeder einzelnen Schule zu entnehmen. Es werden drei Unterscheidungen gemacht, nämlich gibt es einerseits  die Öffentlichen Schulen sowie andererseits die subventionierten und die nicht subventionierten (Privat-)Schulen.</p>
@@ -263,55 +276,55 @@ iframe {
             <hr/>
             <iframe id=19 src="kreis_gen.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 300px"></iframe>
             <p>Während es an den öffentlichen und den subventionierten Schulen nur sehr gering mehr Jungen als Mädchen hat (51% respektive 53% Jungen), liegt dieser Anteil bei den nicht subventionierten Schulen um einiges höher auf 63%. </p>
-            <hr/>
-            <div id="doc">
+            <hr class="hideable"/>
+            <div id="doc" class="hideable">
                 <h1>Dokumentation</h1>
+                <p>Auf den folgenden Zeilen befinden sich eine Erläuterung zu unserem Vorgehen zusammen mit den verwendeten Tools und sonstigen Referenzen sowie eine Auflistung aller Daten und Dateien, auf welchen unsere Visualisierungen basieren.</p>
+                <div id="vorgehen">
+                    <hr/>
+                    <h3>Vorgehen</h3>
+                 </div>
+                <p>Unser Vorgehen in diesem Projekt lässt sich in sieben Schritte unterteilen:</p>
+                <ol>
+                    <li><h5>Säubern der erhaltenen Daten in Rohdaten</h5></li>
+                    <p>Der zur Verfügung gestellte Datensatz der Volksschuldaten enthält teilweise bereits Aggregationen (z.B. Total Schüler pro Schule, Gemeinde, Kanton, usw), was für uns nicht sehr praktisch ist, da sich diese in derselben Tabelle wie die Rohdaten befinden. Wir haben daher als erstes einmal eine "saubere" Tabelle mit ausschliesslich Rohdaten erstellt.</p>
+                    <p><strong>Referenzen:</strong> <a href="http://www.erz.be.ch/erz/de/index/direktion/organisation/generalsekretariat/statistik/schul-_und_gemeindetabellen.html">Datenquelle</a><br/>
+                    <strong>Tools:</strong> Excel</p>
+                    <li><h5>Analysieren der Daten</h5></li>
+                    <p>Als nächstes haben wir geschaut, was für Informationen die Daten überhaupt enthalten und was für Aggregationen sich damit erstellen lassen könnten.</p>
+                    <li><h5>Einarbeiten in D3.js</h5></li>
+                    <p>Mit dem Wissen über die Informationen unserer Daten im Hinterkopf haben wir diese erst einmal zur Seite gelegt und uns in die D3.js Library eingearbeitet. Wir haben auch nach Beispielen von Visualisierungen gesucht, welche die Informationen der Volksschuldaten gut darstellen könnten.</p>
+                    <p><strong>Referenzen:</strong> <a href="https://ilias.unibe.ch/goto_ilias3_unibe_crs_636855.html">Vorlesung</a>, <a href="http://chimera.labs.oreilly.com/books/1230000000345/index.html">Interactive Data Visualization for the Web</a>, <a href="http://d3js.org/">D3.js Library</a>, <a href="http://bl.ocks.org/mbostock">Mike Bostock's Blocks</a>, <a href="http://christopheviau.com/d3list/gallery.html">Christophe Viau's D3.js Gallery</a><br/><strong>Tools:</strong> <a href="http://brackets.io/">Brackets</a></p>
+                    <li><h5>Auswahl der Visualisierungsarten</h5></li>
+                    <p>Basierend auf unseren Erkenntnissen haben wir uns zur Implementierug von Kartenvisualisierungen, Balkendiagrammen und Kreisdiagrammen entschieden. Wir haben uns an den in den Referenzen aufgelisteten Visualisierungen orientiert.</p>
+                    <p><strong>Referenzen:</strong> <a href="http://bl.ocks.org/mbostock/4060606">Choropleth</a>, <a href="http://bl.ocks.org/KoGor/5685876">Russia choropleth</a>, <a href="http://bl.ocks.org/mbostock/4679202">Stacked-to-Multiples</a>, <a href="http://bl.ocks.org/mbostock/5872848">Dispatching Events</a>, <a href="http://bl.ocks.org/mbostock/4063582">Treemap</a>, <a href="http://bl.ocks.org/mbostock/4063423">Sunburst Partition</a>, <a href="http://bl.ocks.org/mbostock/7441121">Bar Chart</a>, <a href="http://bl.ocks.org/mbostock/3888852">Donut Multiples</a>, <a href="http://bl.ocks.org/mbostock/4339184">Reingold–Tilford Tree</a></p>
+                    <li><h5>Aggregation und Verarbeitung der Daten in benötigte Form</h5></li>
+                    <p>Die Visualisierungen benötigen die Daten in einer ganz bestimmten Form (z.B. in einer CSV Datei mit den Attributen id und rate, oder in einer JSON Datei mit spezifischen Properties). Ausserdem benötigen Kartenvisualisierungen die geographischen Daten des Gebiets, welches visualisiert werden soll. Für den Kanton Bern lassen sich diese glücklichweise sehr leicht mit dem Tool SwissMaps und dem Befehl <code>make topo/be-municipalities.json</code> als TopoJSON Datei generieren. Die Volksschuldaten haben wir mit Excel aggregiert und, falls nötig, mit dem Tool TopoJSON und einem Befehl der Form <code>topojson -o out.json -e daten.csv -p rate=+rate,name -- in.json</code> mit den geographischen Daten des Kanton Bern verknüpft. </p>
+                    <p><strong>Tools:</strong> Excel, <a href="https://github.com/interactivethings/swiss-maps">SwissMaps</a>, <a href="https://github.com/mbostock/topojson">TopoJSON</a></p>
+                    <li><h5>Erstellen der Visualisierungen</h5></li>
+                    <p>Das Erstellen der Visualisierungen hat am meisten Zeit in Anspruch genommen. Schon beim kleinsten Fehler im Code wird bei der Visualisierung einfach gar nichts angezeigt und diesen Fehler zu finden, ist meistens sehr mühsam.</p>
+                    <p><strong>Tools:</strong> <a href="http://brackets.io/">Brackets</a>, <a href="http://colorbrewer2.org">Colorbrewer</a></p>
+                    <li><h5>Zusammensetzen dieser Webseite</h5></li>
+                    <p>Da die ganzen Visualisierungen als "App" daherkommen sollen, haben wir sie alle noch auf eine einzige Seite zusammengefügt und dazu noch diese kurze Dokumentation verfasst. Die Typographie dieser Seite stammt vom Twitter Bootstrap Framework.</p>
+                    <p><strong>Tools:</strong> <a href="http://getbootstrap.com/">Twitter Bootstrap</a></p>
+                </ol>
+                <div id="dateien">
+                    <hr/>
+                    <h3>Dateien</h3>
+                </div>
+                <p>Unsere Visualisierungen basieren auf den folgenden Dateien:</p>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Beschreibung</th><th>Dateityp<th>Link</th>
+                    </tr>
+                    <tbody>
+                        <tr><td>Vom Kanton Bern veröffentlichte Form der Volksschuldaten 2012</td><td>.csv<td><a href="data/schulstat_original.csv">link</a></td></tr>
+                        <tr><td>Gesäuberte Form  der Volksschuldaten 2012</td><td>.csv</td><td><a href="data/schulstat_clean.csv">link</a></td></tr>
+                        <tr><td>Aggregierte Form der Volksschuldaten 2012</td><td>.xlsx</td><td><a href="data/schulstat_agg.xlsx">link</a></td></tr>
+                        <tr><td>Kanton Bern mit Gemeinden (ohne Seen) als TopoJSON</td><td>.json</td><td><a href="data/be-municipialities.json">link</a></td></tr>
+                    </tbody>
+                </table>
             </div>
-            <p>Auf den folgenden Zeilen befinden sich eine Erläuterung zu unserem Vorgehen zusammen mit den verwendeten Tools und sonstigen Referenzen sowie eine Auflistung aller Daten und Dateien, auf welchen unsere Visualisierungen basieren.</p>
-            <hr/>
-            <div id="vorgehen">
-                <h3>Vorgehen</h3>
-            </div>
-            <p>Unser Vorgehen in diesem Projekt lässt sich in sieben Schritte unterteilen:</p>
-            <ol>
-                <li><h5>Säubern der erhaltenen Daten in Rohdaten</h5></li>
-                <p>Der zur Verfügung gestellte Datensatz der Volksschuldaten enthält teilweise bereits Aggregationen (z.B. Total Schüler pro Schule, Gemeinde, Kanton, usw), was für uns nicht sehr praktisch ist, da sich diese in derselben Tabelle wie die Rohdaten befinden. Wir haben daher als erstes einmal eine "saubere" Tabelle mit ausschliesslich Rohdaten erstellt.</p>
-                <p><strong>Referenzen:</strong> <a href="http://www.erz.be.ch/erz/de/index/direktion/organisation/generalsekretariat/statistik/schul-_und_gemeindetabellen.html">Datenquelle</a><br/>
-                <strong>Tools:</strong> Excel</p>
-                <li><h5>Analysieren der Daten</h5></li>
-                <p>Als nächstes haben wir geschaut, was für Informationen die Daten überhaupt enthalten und was für Aggregationen sich damit erstellen lassen könnten.</p>
-                <li><h5>Einarbeiten in D3.js</h5></li>
-                <p>Mit dem Wissen über die Informationen unserer Daten im Hinterkopf haben wir diese erst einmal zur Seite gelegt und uns in die D3.js Library eingearbeitet. Wir haben auch nach Beispielen von Visualisierungen gesucht, welche die Informationen der Volksschuldaten gut darstellen könnten.</p>
-                <p><strong>Referenzen:</strong> <a href="https://ilias.unibe.ch/goto_ilias3_unibe_crs_636855.html">Vorlesung</a>, <a href="http://chimera.labs.oreilly.com/books/1230000000345/index.html">Interactive Data Visualization for the Web</a>, <a href="http://d3js.org/">D3.js Library</a>, <a href="http://bl.ocks.org/mbostock">Mike Bostock's Blocks</a>, <a href="http://christopheviau.com/d3list/gallery.html">Christophe Viau's D3.js Gallery</a><br/><strong>Tools:</strong> <a href="http://brackets.io/">Brackets</a></p>
-                <li><h5>Auswahl der Visualisierungsarten</h5></li>
-                <p>Basierend auf unseren Erkenntnissen haben wir uns zur Implementierug von Kartenvisualisierungen, Balkendiagrammen und Kreisdiagrammen entschieden. Wir haben uns an den in den Referenzen aufgelisteten Visualisierungen orientiert.</p>
-                <p><strong>Referenzen:</strong> <a href="http://bl.ocks.org/mbostock/4060606">Choropleth</a>, <a href="http://bl.ocks.org/KoGor/5685876">Russia choropleth</a>, <a href="http://bl.ocks.org/mbostock/4679202">Stacked-to-Multiples</a>, <a href="http://bl.ocks.org/mbostock/5872848">Dispatching Events</a>, <a href="http://bl.ocks.org/mbostock/4063582">Treemap</a>, <a href="http://bl.ocks.org/mbostock/4063423">Sunburst Partition</a>, <a href="http://bl.ocks.org/mbostock/7441121">Bar Chart</a>, <a href="http://bl.ocks.org/mbostock/3888852">Donut Multiples</a>, <a href="http://bl.ocks.org/mbostock/4339184">Reingold–Tilford Tree</a></p>
-                <li><h5>Aggregation und Verarbeitung der Daten in benötigte Form</h5></li>
-                <p>Die Visualisierungen benötigen die Daten in einer ganz bestimmten Form (z.B. in einer CSV Datei mit den Attributen id und rate, oder in einer JSON Datei mit spezifischen Properties). Ausserdem benötigen Kartenvisualisierungen die geographischen Daten des Gebiets, welches visualisiert werden soll. Für den Kanton Bern lassen sich diese glücklichweise sehr leicht mit dem Tool SwissMaps und dem Befehl <code>make topo/be-municipalities.json</code> als TopoJSON Datei generieren. Die Volksschuldaten haben wir mit Excel aggregiert und, falls nötig, mit dem Tool TopoJSON und einem Befehl der Form <code>topojson -o out.json -e daten.csv -p rate=+rate,name -- in.json</code> mit den geographischen Daten des Kanton Bern verknüpft. </p>
-                <p><strong>Tools:</strong> Excel, <a href="https://github.com/interactivethings/swiss-maps">SwissMaps</a>, <a href="https://github.com/mbostock/topojson">TopoJSON</a></p>
-                <li><h5>Erstellen der Visualisierungen</h5></li>
-                <p>Das Erstellen der Visualisierungen hat am meisten Zeit in Anspruch genommen. Schon beim kleinsten Fehler im Code wird bei der Visualisierung einfach gar nichts angezeigt und diesen Fehler zu finden, ist meistens sehr mühsam.</p>
-                <p><strong>Tools:</strong> <a href="http://brackets.io/">Brackets</a>, <a href="http://colorbrewer2.org">Colorbrewer</a></p>
-                <li><h5>Zusammensetzen dieser Webseite</h5></li>
-                <p>Da die ganzen Visualisierungen als "App" daherkommen sollen, haben wir sie alle noch auf eine einzige Seite zusammengefügt und dazu noch diese kurze Dokumentation verfasst. Die Typographie dieser Seite stammt vom Twitter Bootstrap Framework.</p>
-                <p><strong>Tools:</strong> <a href="http://getbootstrap.com/">Twitter Bootstrap</a></p>
-            </ol>
-            <hr/>
-            <div id="dateien">
-                <h3>Dateien</h3>
-            </div>
-            <p>Unsere Visualisierungen basieren auf den folgenden Dateien:</p>
-            <table class="table table-bordered">
-                <tr>
-                    <th>Beschreibung</th><th>Dateityp<th>Link</th>
-                </tr>
-                <tbody>
-                    <tr><td>Vom Kanton Bern veröffentlichte Form der Volksschuldaten 2012</td><td>.csv<td><a href="data/schulstat_original.csv">link</a></td></tr>
-                    <tr><td>Gesäuberte Form  der Volksschuldaten 2012</td><td>.csv</td><td><a href="data/schulstat_clean.csv">link</a></td></tr>
-                    <tr><td>Aggregierte Form der Volksschuldaten 2012</td><td>.xlsx</td><td><a href="data/schulstat_agg.xlsx">link</a></td></tr>
-                    <tr><td>Kanton Bern mit Gemeinden (ohne Seen) als TopoJSON</td><td>.json</td><td><a href="data/be-municipialities.json">link</a></td></tr>
-                </tbody>
-            </table>
             </div>
         </div><!--/row-->
 	</div>
@@ -329,7 +342,22 @@ iframe {
     $('.row-offcanvas').toggleClass('active');
   });
 });
-        
+
+$( "button" ).click(function() {
+  $( "p" ).toggle();
+  $(".hideable").toggle("slow");
+  $( "button" ).toggle();
+  $(".unhide").show();
+setTimeout(doSomething, 1000);
+
+function doSomething() {
+       $('[data-spy="scroll"]').each(function () {
+  $(this).scrollspy('refresh');
+    });
+}
+
+});
+
 </script>
 
     </body>
