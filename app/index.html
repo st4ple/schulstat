@@ -1,59 +1,166 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<head>
+<html lang="de">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+        <title>schulstat - Volksschuldaten BE</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+        <!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <style type="text/css">
+
+body {
+  background-color: #f5f5f5;
     
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>schulstat - Open Data</title>
-</head>
-<style>
-    iframe {
-        width: 960px;
-        height: 650px;
-        border: 0px;
-    }
-    body {
-        padding-top: 0px;
-        padding-bottom: 30px;
-    }
-</style>
-<body>
-    <div class="container">
-        <div class="page-header">
-            <h1 id=home>schulstat <small>Volksschuldaten Kanton Bern</small></h1>
+}
+footer {
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #fff;
+}
+            
+#sidebar {
+  height: 100%;
+  padding-right: 0;
+  margin-top: 0px;
+}
+
+#sidebar .affix {
+
+  width:220px;
+}
+
+#sidebar .affix-bottom {
+  position:fixed;
+  top:55;
+  width:220px;
+}
+
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -33%;
+  }
+
+  .row-offcanvas-left.active {
+    left: 33%;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 33%;
+    margin-left: 10px;
+  }
+
+    page-header {
+        padding-top: -200px;}
+}
+
+
+/* Sidebar navigation */
+.nav-sidebar {
+  background-color: #f5f5f5;
+  margin-right: -15px;
+  margin-bottom: 20px;
+  margin-left: -15px;
+}
+.nav-sidebar > li > a {
+  padding-right: 300px;
+  padding-left: 20px;
+}
+.nav-sidebar > h3 {
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #999;
+}
+.nav-sidebar > .active > a {
+  color: #fff;
+  background-color: #428bca;
+}
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+            
+iframe {
+    width: 900px;
+    height: 650px;
+    border: 0px;
+}
+        </style>
+    </head>    
+<body data-spy="scroll" data-offset="20" data-target="#sidebar">
+
+<div class="container">
+      
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+         <div class="col-sm-3 col-md-2 sidebar-offcanvas" role="navigation" id="sidebar">
+                <ul class="nav nav-sidebar affix">
+                     <h3>schulstat</h3>
+                    <hr/>
+                    <li class="active"><a href="#start">Start</a></li>  
+                    <li><a href="#visual">Visualierungen</a>
+                    <li><a href="#gebiete">Gebiete</a></li>
+                    <li><a href="#stufen">Bildungsstufen</a></li>
+                    <li><a href="#sprachen">Sprachen</a></li>
+                    <li><a href="#trager">Kostenträger</a></li><li><a href=#doc>Dokumentation</a>
+                    <li><a href="#vorgehen">Vorgehen</a></li>
+                    <li><a href="#daten">Daten</a></li>
+                </ul>
+        </div><!--/span-->
+        
+        <div class="col-sm-9 col-md-10 main">
+          
+        <!--toggle sidebar button-->
+        <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+        </p>
+        <div id="start" class="page-header">
+            <h1>schulstat <small>Volksschuldaten Kanton Bern</small></h1>
         </div>
         <p class="lead">Willkommen zur Open Data App von Oliver Stapleton und Arun Sittampalam.</p>
         <p>Diese Website wurde im Frühling 2014 im Rahmen der Vorlesung <a href="http://www.iwi.unibe.ch/content/studium/veranstaltungen/resource/open_data_datenmanagement_und_visualisierung/index_ger.html">Open Data: Datenmanagement und Visualisierung</a> der Universität Bern erstellt. Ziel war es, eine Applikation zur Visualierung von öffentlich frei zugänglichen Daten ("Open Data") mithilfe der <a href="http://d3js.org">JavaScript Library D3.js</a> zu entwickeln.</p>
         <p>Unsere Visualisierungen basieren auf den Volksschuldaten des Kanton Bern aus dem Jahre 2012, welche auf der <a href="http://www.erz.be.ch/erz/de/index/direktion/organisation/generalsekretariat/statistik/schul-_und_gemeindetabellen.html">Website des Kanton</a> zum Herunterladen verfügbar sind.</p>
-        <h4>Shortcuts</h4>
-        <div class="row">
+
+        <hr/>
+        <div id="visual">
+            <h1>Visualisierungen</h1>
         </div>
-        <hr/>
-        <h4>Inhalt</h4>
-        <ul>
-            <li><a href=#visual>Visualierungen</a>
-                <ul>
-                    <li><a href=#gebiete>Gebiete</a></li>
-                    <li><a href=#stufen>Bildungsstufen</a></li>
-                    <li><a href=#sprachen>Unterrichtssprachen</a></li>
-                    <li><a href=#trager>Kostenträger</a></li>
-                </ul>
-            </li>
-            <li><a href=#doc>Dokumentation</a>
-                <ul>
-                    <li><a href=#vorgehen>Vorgehen</a></li>
-                    <li><a href=#daten>Daten</a></li>
-                </ul>
-            </li>
-        </ul>
-        <hr/>
-        <h1 id=visual>Visualisierungen</h1>
         <p>Die Volksschuldaten sind eine Zusammenstellung der Anzahl Schüler, davon ausserdem der Anzahl Mädchen, Fremdsprachigen und Ausländer, pro Schultyp und Schule von sämtlichen Schulen auf dem Gebiet des Kanton Bern aus dem Jahr 2012 (Stichtag 15.9.2012).</p>
         <p>Ein Schultyp gehört zu einer der drei Bildungsstufen Vorschulstufe, Primarstufe und Sekundarstufe I. Die Schulen sind jeweils einer politischen Gemeinde zugeteilt und die Gemeinden einem Verwaltungskreis. Der Kanton Bern hat zehn Verwaltungskreise, welche zusammen 381* politische Gemeinden beinhalten. In 341 dieser Gemeinden gibt es mindestens eine Schule. Zu jeder Schule werden ausserdem die Unterrichtssprache (Deutsch, Französisch oder Englisch) sowie die Kostenträgerart (öffentlich, subventioniert oder nicht subventioniert) geliefert.</p>
         <p>Die folgenden Visualisierungen beziehen sich auf die aus diesen Daten gewonnen Informationen und Erkenntnisse. Wir haben mit verschiedenen Formen von Visualisierungen experimentiert und uns nicht nur auf eine Darstellungsart beschränkt. Bei den interaktiven Visualisierungen können unterhalb der Überschrift die Parameter ausgewählt werden, zudem befinden sich unterhalb der Visualisierungen ergänzende Worte zu deren Erkenntnis.</p>
         <p><small>*Stand am Stichtag (15.9.2012). Im Januar 2014 umfasste der Kanton Bern nach diversen Fusionen noch 362 politische Gemeinden. [<a href="http://de.wikipedia.org/wiki/Gemeinden_des_Kantons_Bern">Quelle</a>]</small></p>
         <hr/>
-        <h3 id=gebiete>Gebiete</h3>
+        <div id="gebiete">
+            <h3>Gebiete</h3>
+        </div>
         <p>Um eine Vorstellung der geographischen Gegebenheiten im Kanton Bern zu erhalten, vorab ein paar Visualisierungen der in den Volksschuldaten enthaltenen demographischen Informationen. </p><p>
         Die Karten zeigen jeweils den Kanton Bern unterteilt nach den Gebieten der einzelnen Gemeinden. 
         </p><p>Unter der Überschrift befindet sich jeweils eine Farbskala als Legende. Um den Namen einer Gemeinde sowie den auf der Karte dargestellten nummerischen Wert zu erfahren, einfach die Maus über das entsprechende Gebiet bewegen.</p>
@@ -68,21 +175,21 @@
         <iframe  id=3 src="karte_kreise.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p>Diese Karte dient zum besseren Verständnis der nachfolgenden Darstellungen. Zu sehen ist die Aufteilung der einzelnen Gemeinden auf die verschiedenen Verwaltungskreise. Die Farbenzuteilung der Verwaltungskreise ist auf allen Darstellungen die gleiche.</p>
         <hr/>
-        <iframe  id=4 src="treemap.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 960px; height: 620px"></iframe>
+        <iframe  id=4 src="treemap.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 900px; height: 620px"></iframe>
         <p>Die verschiedenen Farben in dieser "Treemap" stehen für die verschiedenen Verwaltungskreise (Legende siehe oben). Die Fläche, welche jede dieser Farben deckt, wird anhand der Gewichtung (Anzahl Schüler oder Anzahl Gemeinden pro Verwaltungskreis) zugewiesen. In den Verwaltungskreisen sind ausserdem deren Gemeinden, ebenfalls nach der Gewichtung, eingezeichnet. Die Verwaltungskreise kann man anklicken um eine detailiertere Ansicht zu erhalten.</p>
         <hr/>
         <iframe  id=5 src="sunburst.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p>Dieser "Sunburst" enthält genau die gleichen Informationen mit denselben Farben wie die "Treemap" oben. Im inneren Kreis werden die Verwaltungskreise mit Gewichtung dargestellt, im äusseren Kreis zudem die einzelnen Gemeinden.</p>
         <p></p>
         <hr/>
-        
-        <iframe  id=6 src="kreis_fre.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 500px; height: 520px"></iframe>        
-        <iframe src="kreis_fre.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 500px; height: 520px"></iframe>        
+        <iframe  id=6 src="kreis_fre_duo.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 520px"></iframe>        
         <hr/>
-        <iframe  id=7 src="kreis_aus.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 500px; height: 520px"></iframe>        
-        <iframe src="kreis_aus.html" marginwidth="0" marginheight="0" scrolling="no" style="width: 500px; height: 520px"></iframe>        
+        <iframe  id=7 src="kreis_aus_duo.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 520px"></iframe>        
         <hr/>
-        <h3 id=stufen>Bildungsstufen</h3>
+        <div id="stufen">        
+            <h3>Bildungsstufen</h3>
+        </div>
+
         <p>Die erhobenen Volksschuldaten beziehen sich auf die reguläre Schulzeit, welche die Bildungsstufen Vorschulstufe (Dauer: 1-2 Jahre), Primarstufe (6 Jahre) und Sekundarstufe I (3 Jahre) umfasst.</p>
         <hr/>
         <iframe  id=8 src="balken_stufe.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 550px"></iframe>
@@ -105,17 +212,21 @@
         <p>In den Volksschuldaten ist eine noch feinere Unterscheidung als die Bildungsstufe vorhanden ist: Bei der Primarstufe und der Sekundarstufe I wird zusätzlich nach dem Schultyp unterschieden. Diese Hierarchie wird im folgenden Baumdiagramm dargestellt. In Klammern steht die Anzahl Schüler der jeweiligen Bildungsstufe bzw. des jeweiligen Schultyps.</p>
         <iframe  id=12 src="baum_typ.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <hr/>
-        <h3 id=sprachen>Unterrichtssprachen</h3>
+        <div id="sprachen">
+            <h3>Sprachen</h3>
+        </div>
         <p>Der Kanton Bern verfügt über zwei Amtssprachen, in welchen natürlich in den jeweiligen Gebieten auch unterrichtet wird. </p>
         <hr/>
-        <iframe  id=13 src="balken_spr.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 550px"></iframe>
+        <iframe id=13 src="balken_spr.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 550px"></iframe>
         <p>Deutsch ist im Kanton Bern die vorherrschende Sprache, pro ein Schüler mit Unterrichtssprache Französisch gibt es ungefähr deren zehn mit Unterrichtssprache Deutsch. Englisch wird ebenfalls ganz vereinzelt unterrichtet (und, wie wir <a href="">später</a> sehen werden, ausschliesslich an Privatschulen).</p>
         <hr/>
         <iframe  id=14 src="karte_sprachen.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
         <p>Der Blick auf die Karte zeigt, dass es natürlich vor allem von der geographischen Lage abhängt, welche Sprache unterrichtet wird. An der Deutsch-Französischen Sprachgrenze gibt es einige Bilingue-Gemeinden, ansonsten sind Bern (zusätzlich Französisch), Muri, Saanen und Hasliberg (alle Englisch) mit ihren Privatschulen die einzigen Gemeinden mit mehr als einer Unterrichtssprache.</p>
         <hr/>
-        <h3 id=trager>Träger</h3>
-        <p>Den volksschuldaten sind ebenfalls die Kostenträger jeder einzelnen Schule zu entnehmen. Es werden drei Unterscheidungen gemacht, nämlich gibt es einerseits  die Öffentlichen Schulen sowie andererseits die subventionierten und die nicht subventionierten (Privat-)Schulen.</p>
+        <div id="trager">
+            <h3>Kostenträger</h3>
+        </div>
+        <p>Den Volksschuldaten sind ebenfalls die Kostenträger jeder einzelnen Schule zu entnehmen. Es werden drei Unterscheidungen gemacht, nämlich gibt es einerseits  die Öffentlichen Schulen sowie andererseits die subventionierten und die nicht subventionierten (Privat-)Schulen.</p>
         <hr/>
         <iframe id=15 src="balken_tra_stufe.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 500px"></iframe>
         <p>Die Privatschulen spielen im Kanton Bern eine sehr untergeordnete Rolle; nur einer aus ca. 27 Schülern besucht eine Privatschule. Allerdings scheint sich die relative Verteilung der Schüler auf die Bildungsstufen in den Privatschulen von derjenigen der öffentlichen Schulen zu unterscheiden.</p>
@@ -132,10 +243,14 @@
         <iframe id=19 src="kreis_gen.html" marginwidth="0" marginheight="0" scrolling="no" style="height: 300px"></iframe>
         <p>Während es an den öffentlichen und den subventionierten Schulen nur sehr gering mehr Jungen als Mädchen hat (51% respektive 53% Jungen), liegt dieser Anteil bei den nicht subventionierten Schulen um einiges höher auf 63%. </p>
         <hr/>
-        <h1 id=doc>Dokumentation</h1>
+        <div id="doc">
+            <h1>Dokumentation</h1>
+        </div>
         <p>Auf den folgenden Zeilen befinden sich eine Erläuterung zu unserem Vorgehen zusammen mit den verwendeten Tools und sonstigen Referenzen sowie eine Auflistung aller Daten und Dateien, auf welchen unsere Visualisierungen basieren.</p>
         <hr/>
-        <h3 id=vorgehen>Vorgehen</h3>
+        <div id="vorgehen">
+            <h3>Vorgehen</h3>
+        </div>
         <p>Unser Vorgehen in diesem Projekt lässt sich in sieben Schritte unterteilen:</p>
         <ol>
             <li><h5>Säubern der erhaltenen Daten in Rohdaten</h5></li>
@@ -161,7 +276,9 @@
             <p><strong>Tools:</strong> <a href="http://getbootstrap.com/">Twitter Bootstrap</a></p>
         </ol>
         <hr/>
-        <h3 id=daten>Daten</h3>
+        <div id=daten>
+            <h3>Daten</h3>
+        </div>
         <p>Unsere Visualisierungen basieren auf den folgenden Daten und Dateien:</p>
         <table class="table table-bordered">
             <tr>
@@ -174,5 +291,25 @@
                 <tr><td>Kanton Bern mit Gemeinden (ohne Seen) als TopoJSON</td><td>.json</td><td><a href="data/be-municipialities.json">link</a></td></tr>
             </tbody>
         </table>
-    </div>
-</body>
+
+      </div><!--/row-->
+	</div>
+</div><!--/.container-->
+
+<footer>
+</footer>
+        
+<script type='text/javascript' src="js/jquery-1.9.1.js"></script>
+<script type='text/javascript' src="js/bootstrap.min.js"></script>
+<script>
+    $('div#scroll-able').scrollspy({ target: '#target_nav' });        
+            $(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});
+        
+</script>
+
+    </body>
+</html>

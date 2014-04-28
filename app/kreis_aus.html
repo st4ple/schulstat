@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<head>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-</head>
 <style>
 
 .axis text {
@@ -18,7 +15,6 @@
 
 </style>
 <body>
-<h4>Total Schüler und Anteil Ausländer <small>pro Verwaltungskreis</small></h4>
 
 <script src="js/d3.v3.min.js"></script>
 <script>
@@ -98,8 +94,8 @@ dispatch.on("load.bar", function(stateById) {
 });
 // A pie chart to show population by age group; uses the "pie" namespace.
 dispatch.on("load.pie", function(stateById) {
-  var width = 380,
-      height = 440,
+  var width = 350,
+      height = 400,
       radius = Math.min(width, height) / 2;
 
   var color = d3.scale.ordinal()
