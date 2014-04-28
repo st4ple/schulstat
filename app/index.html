@@ -85,7 +85,11 @@ padding-bottom: 10px;
       color: #f5f5f5;
 }
 .nav-sidebar > li > a > h4  {
-  color: #999;
+          background-color: #428bca !important;
+
+}
+.nav-sidebar li.top{
+              background-color: #428bca !important;
 }
 .nav-sidebar > li > a:hover {
   color: #999;
@@ -93,9 +97,14 @@ padding-bottom: 10px;
 .nav-sidebar > .active > a:hover {
   color: #999 !important;
 }
-.nav-sidebar > .active > a {
+.nav-sidebar > .active > a.me {
   color: #fff !important;
   background-color: #428bca;
+margin-left: -10px;
+}
+.nav-sidebar li.top{
+    margin-left: -10px !important;
+    padding-left: 10px;
 }
 .nav-sidebar > .active > a > h4{
   color: #fff !important;
@@ -155,16 +164,16 @@ iframe {
          <div class="col-sm-3 col-md-2 sidebar-offcanvas" role="navigation" id="sidebar">
                 <ul class="nav nav-sidebar affix">
                      
-                    <li class="active"><a href="#top"><h4>schulstat</h4></a></li>  
-                    <li class="hideable"><a href="#daten">Daten </a>
-                    <li><a href="#visual">Visualierungen</a>
-                    <li><a href="#gebiete">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gebiete</a></li>
-                    <li><a href="#stufen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bildungsstufen</a></li>
-                    <li><a href="#sprachen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sprachen</a></li>
-                    <li><a href="#trager">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kostenträger</a></li>
-                    <li class="hideable"><a href=#doc>Dokumentation</a></li>
-                    <li class="hideable"><a href="#vorgehen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vorgehen</a></li>
-                    <li class="hideable"><a href="#dateien">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dateien</a></li>
+                    <li class="active top"><a href="#top"><h4>schulstat</h4></a></li>  
+                    <li class="hideable"><a class="me" href="#daten">Daten </a>
+                    <li><a  class="me" href="#visual">Visualierungen</a>
+                    <li><a class="me" href="#gebiete">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gebiete</a></li>
+                    <li><a class="me" href="#stufen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bildungsstufen</a></li>
+                    <li><a class="me" href="#sprachen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sprachen</a></li>
+                    <li><a class="me" href="#trager">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kostenträger</a></li>
+                    <li class="hideable"><a class="me" href=#doc>Dokumentation</a></li>
+                    <li class="hideable"><a class="me" href="#vorgehen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vorgehen</a></li>
+                    <li class="hideable"><a class="me" href="#dateien">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dateien</a></li>
                 </ul>
         </div><!--/span-->
         
