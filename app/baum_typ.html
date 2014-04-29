@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/body.css">
     
-</head>
 <style>
 
 .node circle {
@@ -23,8 +22,13 @@
   stroke: #ccc;
   stroke-width: 1.5px;
 }
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 900px;
+}
 
 </style>
+</head>
 <body>
 <h4>Schultypen <small>hierarchisch nach Bildungsstufen</small></h4>
 <script src="js/d3.v3.min.js"></script>
@@ -34,7 +38,7 @@ var width = 900,
     height = 450;
 
 var cluster = d3.layout.cluster()
-    .size([height-50, width - 500]);
+    .size([height-50, width - 600]);
 
 var diagonal = d3.svg.diagonal()
     .projection(function(d) { return [d.y, d.x]; });
@@ -74,3 +78,4 @@ d3.json("data/stutyp.json", function(error, root) {
 d3.select(self.frameElement).style("height", height + "px");
 
 </script>
+</body>
