@@ -72,11 +72,11 @@ footer {
 }
 .nav-sidebar > li > a > h4  {
     background-color: #428bca !important;
-    
 }
 
 .nav-sidebar li.top{
     background-color: #428bca !important;
+    margin-bottom: 10px;
 }
 .nav-sidebar > li > a:hover {
     color: #999;
@@ -112,17 +112,22 @@ footer {
     margin-bottom: 0px;
     margin-top: -25px;
     padding-top: 100px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     background-color: #428bca;
+}
+
+.jumbo h1 {
+    font-size: 60px !important;
+    color: #fff !important;
+}
+
+.jumbo a {
+    color: #fff !important;
 }
 
 
 .page-header {
     padding-top: 30px;
-}
-            
-.white {
-    color: #fff !important;
 }
             
 @media (min-width: 768px) {
@@ -139,4 +144,12 @@ iframe {
     width: 900px;
     height: 650px;
     border: 0px;
+}
+
+.logo {
+    padding-top: 15px;
+}
+
+.lead {
+    margin-top: -5px;
 }
