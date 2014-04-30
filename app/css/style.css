@@ -145,3 +145,11 @@ iframe {
     height: 650px;
     border: 0px;
 }
+
+.logo {
+    padding-top: 15px;
+}
+
+.lead {
+    margin-top: -5px;
+}
