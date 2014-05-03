@@ -27,7 +27,7 @@ var groups = [
     "Anzahl_Ausl",
 ];
 
-d3.csv("data/sprakreis.csv", type, function(error, states) {
+d3.csv("data/fre.csv", type, function(error, states) {
   if (error) throw error;
   var stateById = d3.map();
   states.forEach(function(d) { stateById.set(d.id, d); });

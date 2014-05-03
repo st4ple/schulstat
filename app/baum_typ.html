@@ -49,7 +49,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(130,0)");
 
-d3.json("data/stutyp.json", function(error, root) {
+d3.json("data/typ.json", function(error, root) {
   var nodes = cluster.nodes(root),
       links = cluster.links(nodes);
 
