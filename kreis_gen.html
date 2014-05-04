@@ -22,7 +22,8 @@ svg {
 
 </style>
 <body>
-    <h4>Relativer Anteil fremdsprachiger Schüler <small>pro Kostenträger</small></h4>
+    <h4>Relativer Anteil Geschlechter <small>pro Kostenträger</small></h4>
+
 <script src="js/d3.v3.min.js"></script>
 <script>
 
@@ -30,7 +31,7 @@ var radius = 110,
     padding = 10;
 
 var color = d3.scale.ordinal()
-    .range(['rgb(204,236,230)', 'rgb(35,139,69)']);
+    .range(["#F7A5C0", "#A6E4F7"]);
 
 var arc = d3.svg.arc()
     .outerRadius(radius)
@@ -40,7 +41,7 @@ var pie = d3.layout.pie()
     .sort(null)
     .value(function(d) { return d.population; });
 
-d3.csv("data/fretra.csv", function(error, data) {
+d3.csv("data/gen.csv", function(error, data) {
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "id"; }));
 
   data.forEach(function(d) {

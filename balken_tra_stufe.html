@@ -81,7 +81,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("data/tragstufe.csv", function(error, data) {
+d3.csv("data/tra_stufe.csv", function(error, data) {
 
   data.forEach(function(d) {
     d.value = +d.value;
