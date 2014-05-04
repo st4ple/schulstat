@@ -1,0 +1,1 @@
+topojson -o aus.json -e aus.csv -p rate=+rate,name -- topojson.json
