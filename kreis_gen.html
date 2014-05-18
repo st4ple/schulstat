@@ -13,7 +13,7 @@ body {
 }
 
 svg {
-  padding: 10px 0 0 10px;
+  margin: 10px 0 0 10px;
 }
 
 .arc {
@@ -57,7 +57,7 @@ d3.csv("data/gen.csv", function(error, data) {
     .selectAll("g")
       .data(color.domain().slice().reverse())
     .enter().append("g")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+      .attr("transform", function(d, i) { return "translate(0," + i * 30 + ")"; });
 
   legend.append("rect")
       .attr("width", 18)
