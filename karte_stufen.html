@@ -23,7 +23,7 @@ var width = 960,
 // Setting color domains(intervals of values) for our map
 var color_domain = [1]
 var ext_color_domain = [0, 1]
-var legend_labels = ["nein", "ja"]
+var legend_labels = ["nicht vorhanden", "vorhanden"]
 var tone = "#1f77b4"
 var value = "vor";
         
@@ -91,7 +91,7 @@ function update(stufe, tone) {
             d3.select(this).transition().duration(300).style("fill", "grey");
             div.transition().duration(300)
                 .style("opacity", 0.8)
-            div.text(d.properties.name + ": " + (d.properties.rate==1?"ja" : "nein"))
+            div.text(d.properties.name + ": " + (d.properties.rate==1?"vorhanden" : "nicht vorhanden"))
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY -30) + "px")    
         })

@@ -29,16 +29,35 @@
 .x.axis path {
   display: none;
 }
+    
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 900px;
 }
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
 </style>
 <body>
 <h4>Verteilung Schüler <small>auf Unterrichtssprachen</small></h4>
 <svg class="chart"></svg>
 <script src="js/d3.v3.min.js"></script>
+<script src="js/d3.tip.v0.6.3.js"></script>
 <script>
+    
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>Anzahl Schüler:</strong> " + d.value + "";
+  })
 
 var margin = {top: 20, right: 30, bottom: 30, left: 50},
     width = 900 - margin.left - margin.right,
@@ -64,6 +83,8 @@ var chart = d3.select(".chart")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+chart.call(tip);
+    
 d3.csv("data/spr.csv", type, function(error, data) {
   x.domain(data.map(function(d) { return d.name; }));
   y.domain([0, d3.max(data, function(d) { return d.value; })]);
@@ -84,7 +105,9 @@ d3.csv("data/spr.csv", type, function(error, data) {
       .attr("x", function(d) { return x(d.name); })
       .attr("y", function(d) { return y(d.value); })
       .attr("height", function(d) { return height - y(d.value); })
-      .attr("width", x.rangeBand());
+      .attr("width", x.rangeBand())
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide);
 });
 
 function type(d) {

@@ -35,6 +35,15 @@ body {
   width: 900px;
 }
 
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+    
 </style>
 <body>
         <h4>Verteilung Schüler <small>auf Verwaltungskreise und Bildungstufen</small></h4>
@@ -43,7 +52,15 @@ body {
   <label><input type="radio" name="mode" value="stacked"> zusammen</label>
 </form>
 <script src="js/d3.v3.min.js"></script>
+<script src="js/d3.tip.v0.6.3.js"></script>
 <script>
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>Anzahl Schüler:</strong> " + d.value + "";
+  })
 
 var margin = {top: 10, right: 20, bottom: 60, left: 100},
     width = 900 - margin.left - margin.right,
@@ -98,6 +115,8 @@ d3.csv("data/kreis_stufe.csv", function(error, data) {
       .attr("class", "group")
       .attr("transform", function(d) { return "translate(0," + y0(d.key) + ")"; });
 
+  group.call(tip);
+
   group.append("text")
       .attr("class", "group-label")
       .attr("x", -6)
@@ -112,7 +131,9 @@ d3.csv("data/kreis_stufe.csv", function(error, data) {
       .attr("x", function(d) { return x(d.date); })
       .attr("y", function(d) { return y1(d.value); })
       .attr("width", x.rangeBand())
-      .attr("height", function(d) { return y0.rangeBand() - y1(d.value); });
+      .attr("height", function(d) { return y0.rangeBand() - y1(d.value); })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide);
 
   group.filter(function(d, i) { return !i; }).append("g")
       .attr("class", "x axis")

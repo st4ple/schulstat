@@ -9,18 +9,18 @@ body {
 
 div.tooltip {   
   position: absolute;           
-  text-align: left;           
-  width: 100px;                  
-  height: 35px;                 
-  padding: 4px;             
-  font-size: 10px;     
+  text-align: left;                           
+  padding: 12px;             
+  font-size: 14px;     
   background: #000;
   color: white;
   border: 1px;      
-  border-radius: 5px;
+  border-radius: 2px;
   border-color: #000;
-  pointer-events: none;         
-}    
+  pointer-events: none;
+  line-height: 1;
+  font-weight: bold;
+}   
 
 .grenze {
   fill: none;
