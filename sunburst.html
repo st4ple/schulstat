@@ -20,6 +20,17 @@ form {
   right: 10px;
   top: 10px;
 }
+    
+.d3-tip {
+  line-height: 1;
+  margin-left: -20px;  
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  font-size: 14px;     
+}
 
 </style>
   <body>
@@ -29,7 +40,15 @@ form {
   <label><input type="radio" name="mode" value="count"> Gemeinden</label>
 </form>
 <script src="js/d3.v3.min.js"></script>
+<script src="js/d3.tip.v0.6.3.js"></script>
 <script>
+    
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return d.name + ": " + d.value + "";
+  })
 
 var width = 800,
     height = 700,
@@ -51,7 +70,10 @@ var arc = d3.svg.arc()
     .startAngle(function(d) { return d.x; })
     .endAngle(function(d) { return d.x + d.dx; })
     .innerRadius(function(d) { return Math.sqrt(d.y)-60; })
-    .outerRadius(function(d) { return Math.sqrt(d.y + d.dy)-60; });
+    .outerRadius(function(d) { return Math.sqrt(d.y + d.dy)-60; });      
+    
+svg.call(tip);
+
 
 d3.json("data/sunburst.json", function(error, root) {
   var path = svg.datum(root).selectAll("path")
@@ -61,6 +83,8 @@ d3.json("data/sunburst.json", function(error, root) {
       .attr("d", arc)
       .style("stroke", "#fff")
       .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
+  .on('mouseover', tip.show)
+      .on('mouseout', tip.hide)
       .each(stash);
     
   d3.selectAll("input").on("change", function change() {
@@ -74,7 +98,8 @@ d3.json("data/sunburst.json", function(error, root) {
         .duration(1500)
         .attrTween("d", arcTween);
   });
-});
+})
+
 
 // Stash the old values for transition.
 function stash(d) {

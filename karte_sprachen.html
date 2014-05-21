@@ -18,7 +18,7 @@ var width = 960,
 // Setting color domains(intervals of values) for our map
 var color_domain = [0, 1, 2, 3, 4]
 var ext_color_domain = [0, 1, 2, 3, 4]
-var legend_labels = ["keine", "Französisch", "Französisch und Deutsch", "Deutsch", "Deutsch und Englisch"]              
+var legend_labels = ["keine", "Französisch", "Französisch/Deutsch", "Deutsch", "Deutsch/Englisch"]              
 var color = d3.scale.threshold()
 .domain(color_domain)
 //.range(["#000000", "#000000", "#00ADEF", "#EC008C", "FFF200"]);
@@ -59,7 +59,7 @@ d3.json("data/sprachen.json", function(error, be) {
     d3.select(this).transition().duration(300).style("opacity", 0.5);
     div.transition().duration(300)
     .style("opacity", 0.8)
-    div.text(d.properties.name + ": " + (d.properties.rate==1?"FR" : "") + (d.properties.rate==2?"DE / FR" : "") + (d.properties.rate==3?"DE" : "") + (d.properties.rate==4?"DE / EN" : ""))
+    div.text(d.properties.name + ": " + (d.properties.rate==1?"Französisch" : "") + (d.properties.rate==2?"Französisch/Deutsch" : "") + (d.properties.rate==3?"Deutsch" : "") + (d.properties.rate==4?"Deutsch/Englisch" : ""))
     .style("left", (d3.event.pageX) + "px")
     .style("top", (d3.event.pageY -30) + "px")    
   })

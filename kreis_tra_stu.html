@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-    
-    <!-- Latest compiled and minified CSS -->
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
 </head>
@@ -13,18 +12,36 @@ body {
 }
 
 svg {
-  padding: 10px 0 0 10px;
+  margin: 10px 0 0 10px;
 }
 
 .arc {
   stroke: #fff;
 }
 
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  font-size: 14px;     
+}
+
 </style>
 <body>
-<h4>Relativer Anteil Schüler <small>pro Bildungsstufe und Kostenträger</small></h4>
+<h4>Verteilung Schüler <small>auf Bildungsstufe pro Kostenträger</small></h4>
 <script src="js/d3.v3.min.js"></script>
+<script src="js/d3.tip.v0.6.3.js"></script>
 <script>
+    
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return d.data.name + ": " + d.value + "%";
+  })
 
 var radius = 110,
     padding = 10;
@@ -75,14 +92,18 @@ d3.csv("data/tra_stu.csv", function(error, data) {
       .attr("width", radius * 2)
       .attr("height", radius * 2)
     .append("g")
-      .attr("transform", "translate(" + radius + "," + radius + ")");
+      .attr("transform", "translate(" + radius + "," + radius + ")");  
+  
+  svg.call(tip);
 
   svg.selectAll(".arc")
       .data(function(d) { return pie(d.ages); })
     .enter().append("path")
       .attr("class", "arc")
       .attr("d", arc)
-      .style("fill", function(d) { return color(d.data.name); });
+      .style("fill", function(d) { return color(d.data.name); })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide);
 
   svg.append("text")
       .attr("dy", ".35em")
